@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,9 +26,7 @@ Route::get('/dashboard', function () {
 
 
 
-Route::get('/main', function () {
-    return view('main');
-});
+Route::get('/main', [MainController::class, 'index'])->name('main');
 
 
 
