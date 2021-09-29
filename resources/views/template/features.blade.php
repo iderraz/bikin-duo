@@ -3,8 +3,8 @@
         <div class="container">
   
           <div class="section-title">
-            <h2>Features</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <h2>{{ ($titre[2]->titre) }}</h2>
+            <p>{{ ($titre[2]->description) }}</p>
           </div>
   
           <div class="row content">
@@ -12,15 +12,14 @@
               <img src="{{asset('assets/img/features-1.png')}}" class="img-fluid" alt="">
             </div>
             <div class="col-md-7 pt-4" data-aos="fade-left" data-aos-delay="100">
-              <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+              <h3>{{ ($feature_description[0]->titre) }}</h3>
               <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
+                {{ ($feature_description[0]->description_1) }}
               </p>
               <ul>
-                <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check"></i> Ullam est qui quos consequatur eos accusamus.</li>
+                <li><i class="bi bi-check"></i> {{ ($feature_description[0]->description_2) }}</li>
+                <li><i class="bi bi-check"></i> {{ ($feature_description[4]->description_2) }}</li>
+                <li><i class="bi bi-check"></i> {{ ($feature_description[5]->description_2) }}</li>
               </ul>
             </div>
           </div>
@@ -30,15 +29,12 @@
               <img src="{{asset('assets/img/features-2.png')}}" class="img-fluid" alt="">
             </div>
             <div class="col-md-7 pt-5 order-2 order-md-1" data-aos="fade-right">
-              <h3>Corporis temporibus maiores provident</h3>
+              <h3>{{ ($feature_description[1]->titre) }}</h3>
               <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
+                {{ ($feature_description[1]->description_1) }}
               </p>
               <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum
+                {{ ($feature_description[1]->description_2) }}
               </p>
             </div>
           </div>
@@ -48,12 +44,12 @@
               <img src="{{asset('assets/img/features-3.png')}}" class="img-fluid" alt="">
             </div>
             <div class="col-md-7 pt-5" data-aos="fade-left">
-              <h3>Sunt consequatur ad ut est nulla consectetur reiciendis animi voluptas</h3>
-              <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
+              <h3>{{ ($feature_description[2]->titre) }}</h3>
+              <p>{{ ($feature_description[2]->description_1) }}</p>
               <ul>
-                <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.</li>
+                <li><i class="bi bi-check"></i> {{ ($feature_description[2]->description_2) }}</li>
+                <li><i class="bi bi-check"></i> {{ ($feature_description[6]->description_2) }}</li>
+                <li><i class="bi bi-check"></i> {{ ($feature_description[7]->description_2) }}</li>
               </ul>
             </div>
           </div>
@@ -63,15 +59,12 @@
               <img src="{{asset('assets/img/features-4.png')}}" class="img-fluid" alt="">
             </div>
             <div class="col-md-7 pt-5 order-2 order-md-1" data-aos="fade-right">
-              <h3>Quas et necessitatibus eaque impedit ipsum animi consequatur incidunt in</h3>
+              <h3>{{ ($feature_description[3]->titre) }}</h3>
               <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
+                {{ ($feature_description[3]->description_1) }}
               </p>
               <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum
+                {{ ($feature_description[3]->description_2) }}
               </p>
             </div>
           </div>

@@ -9,7 +9,6 @@ use App\Models\Footer;
 use App\Models\FooterBottom;
 use App\Models\Navbar;
 use App\Models\Portfolio;
-use App\Models\Role;
 use App\Models\Section2;
 use App\Models\Service;
 use App\Models\Team;

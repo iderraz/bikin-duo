@@ -16,17 +16,17 @@ class ContactSeeder extends Seeder
     {
         DB::table('contacts')->insert([
             [
-                'icone' => '',
+                'icone' => 'bx bx-map',
                 'titre' => 'Our Address',
                 'contenu' => 'A108 Adam Street, New York, NY 535022'
             ],
             [
-                'icone' => '',
+                'icone' => 'bx bx-envelope',
                 'titre' => 'Email Us',
                 'contenu' => 'info@example.com'
             ],
             [
-                'icone' => '',
+                'icone' => 'bx bx-phone-call',
                 'titre' => 'Call Us',
                 'contenu' => '+1 5589 55488 55'
             ]
