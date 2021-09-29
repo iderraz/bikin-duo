@@ -29,4 +29,7 @@ Route::get('/main', function () {
     return view('main');
 });
 
+
+
+
 require __DIR__.'/auth.php';

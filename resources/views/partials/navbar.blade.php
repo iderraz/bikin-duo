@@ -15,6 +15,36 @@
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          @auth
+
+          <li>
+              <a href="{{ url('/dashboard') }}">Dashboard</a>
+          </li>
+
+          <li >
+              <form method="POST" action="{{ route('logout') }}">
+                  @csrf
+                  <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                                      this.closest('form').submit();">
+                      {{ __('Log Out') }}
+                  </x-dropdown-link>
+              </form>
+          </li>
+
+      @else
+
+          <li>
+              <a href="{{ route('login') }}">Log in</a>
+          </li>
+
+          @if (Route::has('register'))
+
+              <li >
+                  <a href="{{ route('register') }}">Register</a>
+              </li>
+          @endif
+
+      @endauth
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
