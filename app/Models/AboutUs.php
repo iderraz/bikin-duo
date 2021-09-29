@@ -9,7 +9,7 @@ class AboutUs extends Model
 {
     use HasFactory;
 
-    protected $table = 'aboutus';
+    protected $table = 'about_us';
 
     protected $fillable = [
         'emoji',

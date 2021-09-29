@@ -9,7 +9,7 @@ class FooterBottom extends Model
 {
     use HasFactory;
 
-    protected $table = 'footerbottoms';
+    protected $table = 'footer_bottoms';
 
     protected $fillable = [
         'titre',
