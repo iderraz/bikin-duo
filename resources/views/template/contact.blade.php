@@ -3,8 +3,8 @@
         <div class="container" data-aos="fade-up">
   
           <div class="section-title">
-            <h2>Contact</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <h2>{{ ($titre[7]->titre) }}</h2>
+            <p>{{ ($titre[7]->description) }}</p>
           </div>
   
           <div class="row">
@@ -14,23 +14,23 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="info-box">
-                    <i class="bx bx-map"></i>
-                    <h3>Our Address</h3>
-                    <p>A108 Adam Street, New York, NY 535022</p>
+                    <i class="{{ ($contact_emoji[0]->icone) }}"></i>
+                    <h3>{{ ($contact_emoji[0]->titre) }}</h3>
+                    <p>{{ ($contact_emoji[0]->contenu) }}</p>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="info-box mt-4">
-                    <i class="bx bx-envelope"></i>
-                    <h3>Email Us</h3>
-                    <p>info@example.com<br>contact@example.com</p>
+                    <i class="{{ ($contact_emoji[1]->icone) }}"></i>
+                    <h3>{{ ($contact_emoji[1]->titre) }}</h3>
+                    <p>{{ ($contact_emoji[1]->contenu) }}<br>contact@example.com</p>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="info-box mt-4">
-                    <i class="bx bx-phone-call"></i>
-                    <h3>Call Us</h3>
-                    <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                    <i class="{{ ($contact_emoji[2]->icone) }}"></i>
+                    <h3>{{ ($contact_emoji[2]->titre) }}</h3>
+                    <p>{{ ($contact_emoji[2]->contenu) }}<br>+1 6678 254445 41</p>
                   </div>
                 </div>
               </div>

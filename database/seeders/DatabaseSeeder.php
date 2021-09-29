@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             FeatureSeeder::class,
             ServiceSeeder::class,
             PortfolioSeeder::class,
+            TestimonialSeeder::class,
             TeamSeeder::class,
             ContactSeeder::class,
             FooterSeeder::class,

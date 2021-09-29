@@ -3,8 +3,8 @@
         <div class="container" data-aos="fade-up">
   
           <div class="section-title">
-            <h2>Team</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <h2>{{ ($titre[6]->titre) }}</h2>
+            <p>{{ ($titre[6]->description) }}</p>
           </div>
   
           <div class="row">
@@ -14,14 +14,14 @@
                 <img src="{{asset('assets/img/team/team-1.jpg')}}" class="img-fluid" alt="">
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>Walter White</h4>
-                    <span>Chief Executive Officer</span>
+                    <h4>{{ ($team_image[0]->nom) }}</h4>
+                    <span>{{ ($team_image[0]->fonction) }}</span>
                   </div>
                   <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    <a href=""><i class="{{ ($team_image[0]->icone) }}"></i></a>
+                    <a href=""><i class="{{ ($team_image[1]->icone) }}"></i></a>
+                    <a href=""><i class="{{ ($team_image[2]->icone) }}"></i></a>
+                    <a href=""><i class="{{ ($team_image[3]->icone) }}"></i></a>
                   </div>
                 </div>
               </div>
@@ -32,14 +32,14 @@
                 <img src="{{asset('assets/img/team/team-2.jpg')}}" class="img-fluid" alt="">
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>Sarah Jhonson</h4>
-                    <span>Product Manager</span>
+                    <h4>{{ ($team_image[1]->nom) }}</h4>
+                    <span>{{ ($team_image[1]->fonction) }}</span>
                   </div>
                   <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    <a href=""><i class="{{ ($team_image[0]->icone) }}"></i></a>
+                    <a href=""><i class="{{ ($team_image[1]->icone) }}"></i></a>
+                    <a href=""><i class="{{ ($team_image[2]->icone) }}"></i></a>
+                    <a href=""><i class="{{ ($team_image[3]->icone) }}"></i></a>
                   </div>
                 </div>
               </div>
@@ -50,14 +50,14 @@
                 <img src="{{asset('assets/img/team/team-3.jpg')}}" class="img-fluid" alt="">
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>William Anderson</h4>
-                    <span>CTO</span>
+                    <h4>{{ ($team_image[2]->nom) }}</h4>
+                    <span>{{ ($team_image[2]->fonction) }}</span>
                   </div>
                   <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    <a href=""><i class="{{ ($team_image[0]->icone) }}"></i></a>
+                    <a href=""><i class="{{ ($team_image[1]->icone) }}"></i></a>
+                    <a href=""><i class="{{ ($team_image[2]->icone) }}"></i></a>
+                    <a href=""><i class="{{ ($team_image[3]->icone) }}"></i></a>
                   </div>
                 </div>
               </div>
@@ -68,14 +68,14 @@
                 <img src="{{asset('assets/img/team/team-4.jpg')}}" class="img-fluid" alt="">
                 <div class="member-info">
                   <div class="member-info-content">
-                    <h4>Amanda Jepson</h4>
-                    <span>Accountant</span>
+                    <h4>{{ ($team_image[3]->nom) }}</h4>
+                    <span>{{ ($team_image[3]->fonction) }}</span>
                   </div>
                   <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    <a href=""><i class="{{ ($team_image[0]->icone) }}"></i></a>
+                    <a href=""><i class="{{ ($team_image[1]->icone) }}"></i></a>
+                    <a href=""><i class="{{ ($team_image[2]->icone) }}"></i></a>
+                    <a href=""><i class="{{ ($team_image[3]->icone) }}"></i></a>
                   </div>
                 </div>
               </div>
