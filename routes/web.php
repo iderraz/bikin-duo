@@ -42,7 +42,7 @@ Route::get('/main', [MainController::class, 'index'])->name('main');
 
 //Routes Resources
 
-Route::resource('/aboutUs', AboutUsController::class);
+Route::resource('/about', AboutUsController::class);
 Route::resource('/contact', ContactController::class);
 Route::resource('/feature', FeatureController::class);
 Route::resource('/footer', FooterController::class);

@@ -18,7 +18,7 @@
              <span class="tooltip">Dashboard</span>
           </li>
          <li>
-            <a href="{{route('aboutUs.index')}}">
+            <a href="{{route('about.index')}}">
               <i class='bx bxl-tux' ></i>
               <span class="links_name">About</span>
             </a>

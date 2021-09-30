@@ -13,7 +13,7 @@
         </div>
     @endif
 
-    <form class="container d-flex flex-column w-75" action="{{route('aboutUs.store')}}" enctype="multipart/form-data" method="post">
+    <form class="container d-flex flex-column w-75" action="{{route('about.store')}}" enctype="multipart/form-data" method="post">
         @csrf
         <label for="emoji">Emoji : </label>
         <input type="text" value="{{old('emoji')}}" name="emoji" id="emoji">

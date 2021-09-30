@@ -50,7 +50,7 @@ class AboutUsController extends Controller
         $about->description = $request->description;
         $about->save();
 
-        return redirect()->route('aboutUs.index')->with('message', 'Créé avec succès');
+        return redirect()->route('about.index')->with('message', 'Créé avec succès');
     }
 
     /**
@@ -96,7 +96,7 @@ class AboutUsController extends Controller
         $about->description = $request->description;
         $about->save();
 
-        return redirect()->route('aboutUs.index')->with('message', 'Modifié avec succès');
+        return redirect()->route('about.index')->with('message', 'Modifié avec succès');
     }
 
     /**
@@ -108,6 +108,6 @@ class AboutUsController extends Controller
     public function destroy(AboutUs $about)
     {   
         $about->delete();
-        return redirect()->route('aboutUs.index')->with('message', 'supprimé avec succès');
+        return redirect()->route('about.index')->with('message', 'supprimé avec succès');
     }
 }
