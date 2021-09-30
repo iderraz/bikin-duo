@@ -14,7 +14,8 @@ class NavbarController extends Controller
      */
     public function index()
     {
-        //
+        $navbar = Navbar::all();
+        return view('backoffice.partials.navbar.navbar', compact('navbar'));
     }
 
     /**
@@ -24,7 +25,7 @@ class NavbarController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.partials.navbar.navbarCreate');
     }
 
     /**
@@ -35,7 +36,18 @@ class NavbarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'contenu' => ['required']
+        ]);
+
+        $table = new Navbar;
+
+        $table -> contenu = $request -> contenu;
+
+        $table -> save();
+
+        return redirect() -> route('navbar.index') -> with('message', 'élément Navbar créé !');
+
     }
 
     /**
@@ -46,7 +58,7 @@ class NavbarController extends Controller
      */
     public function show(Navbar $navbar)
     {
-        //
+        return view('backoffice.partials.navbar.navbarShow', compact('navbar'));
     }
 
     /**
@@ -57,7 +69,7 @@ class NavbarController extends Controller
      */
     public function edit(Navbar $navbar)
     {
-        //
+        return view('backoffice.partials.navbar.navbarEdit', compact('navbar'));
     }
 
     /**
@@ -69,7 +81,16 @@ class NavbarController extends Controller
      */
     public function update(Request $request, Navbar $navbar)
     {
-        //
+        $request->validate([
+            'contenu' => ['required']
+        ]);
+
+        $navbar -> contenu = $request -> contenu;
+
+        $navbar -> save();
+
+        return redirect() -> route('navbar.index') -> with('message', 'élément Navbar créé !');
+
     }
 
     /**
@@ -80,6 +101,8 @@ class NavbarController extends Controller
      */
     public function destroy(Navbar $navbar)
     {
-        //
+        $navbar -> delete();
+
+        return redirect() -> route('navbar.index') -> with('message', 'élément Navbar supprimé !');
     }
 }
