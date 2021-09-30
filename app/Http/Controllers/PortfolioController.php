@@ -14,7 +14,8 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        //
+        $portfolio = Portfolio::all();
+        return view('backoffice.pages.portfolio.portfolio', compact('portfolio'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.pages.portfolio.portfolioCreate');
     }
 
     /**
@@ -35,7 +36,20 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'url' => ['required'],
+            'description' => ['required']
+        ]);
+
+        $table = new Portfolio;
+
+        $table -> url = $request -> file('url') -> hashName();
+        $table -> description = $request -> description;
+
+        $table -> save();
+
+        return redirect() -> route('portfolio.index') -> with('message', 'Elément Portfolio créé !');
+        
     }
 
     /**

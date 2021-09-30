@@ -14,7 +14,8 @@ class FooterController extends Controller
      */
     public function index()
     {
-        //
+        $footer = Footer::all();
+        return view('backoffice.partials.footer.footer', compact('footer'));
     }
 
     /**
@@ -24,7 +25,7 @@ class FooterController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.partials.footer.footerCreate');
     }
 
     /**
@@ -35,7 +36,20 @@ class FooterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'links' => ['required'],
+            'services' => ['required'],
+        ]);
+
+        $table = new Footer;
+
+        $table -> links = $request -> links;
+        $table -> services = $request -> services;
+
+        $table -> save();
+
+        return redirect() -> route('footer.index') -> with('message', 'Footer créé !');
+
     }
 
     /**
@@ -46,7 +60,7 @@ class FooterController extends Controller
      */
     public function show(Footer $footer)
     {
-        //
+        return view('backoffice.partials.footer.footerShow', compact('footer'));
     }
 
     /**
@@ -57,7 +71,7 @@ class FooterController extends Controller
      */
     public function edit(Footer $footer)
     {
-        //
+        return view('backoffice.partials.footer.footerEdit', compact('footer'));
     }
 
     /**
@@ -69,7 +83,18 @@ class FooterController extends Controller
      */
     public function update(Request $request, Footer $footer)
     {
-        //
+        $request->validate([
+            'links' => ['required'],
+            'services' => ['required'],
+        ]);
+
+        $footer -> links = $request -> links;
+        $footer -> services = $request -> services;
+
+        $footer -> save();
+
+        return redirect() -> route('footer.index') -> with('message', 'Footer modifié !');
+        
     }
 
     /**
@@ -80,6 +105,8 @@ class FooterController extends Controller
      */
     public function destroy(Footer $footer)
     {
-        //
+        $footer -> delete();
+
+        return redirect() -> route('footer.index') -> with('message', 'Footer supprimé !');
     }
 }

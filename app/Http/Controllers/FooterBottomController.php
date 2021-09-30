@@ -14,7 +14,8 @@ class FooterBottomController extends Controller
      */
     public function index()
     {
-        //
+        $footerBottom = FooterBottom::all();
+        return view('backoffice.partials.footerBottom.footerBottom', compact('footerBottom'));
     }
 
     /**
@@ -24,7 +25,7 @@ class FooterBottomController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.partials.footerBottom.footerBottomCreate');
     }
 
     /**
@@ -35,7 +36,19 @@ class FooterBottomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'titre' => ['required'],
+            'icone' => ['required'],
+        ]);
+
+        $table = new FooterBottom;
+
+        $table -> titre = $request -> titre;
+        $table -> icone = $request -> icone;
+
+        $table -> save();
+
+        return redirect() -> route('footerBottom.index') -> with('message', 'footer créé !');
     }
 
     /**
@@ -46,7 +59,7 @@ class FooterBottomController extends Controller
      */
     public function show(FooterBottom $footerBottom)
     {
-        //
+        return view('backoffice.partials.footerBottom.footerBottomShow', compact('footerBottom'));
     }
 
     /**
@@ -57,7 +70,7 @@ class FooterBottomController extends Controller
      */
     public function edit(FooterBottom $footerBottom)
     {
-        //
+        return view('backoffice.partials.footerBottom.footerBottomEdit', compact('footerBottom'));
     }
 
     /**
@@ -69,7 +82,18 @@ class FooterBottomController extends Controller
      */
     public function update(Request $request, FooterBottom $footerBottom)
     {
-        //
+        $request->validate([
+            'titre' => ['required'],
+            'icone' => ['required'],
+        ]);
+
+
+        $footerBottom -> titre = $request -> titre;
+        $footerBottom -> icone = $request -> icone;
+
+        $footerBottom -> save();
+
+        return redirect() -> route('footerBottom.index') -> with('message', 'footer modifié !');
     }
 
     /**
@@ -80,6 +104,8 @@ class FooterBottomController extends Controller
      */
     public function destroy(FooterBottom $footerBottom)
     {
-        //
+        $footerBottom -> delete();
+
+        return redirect() -> route('footerBottom.index') -> with('message', 'footer supprimé !');
     }
 }
