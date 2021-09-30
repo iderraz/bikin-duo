@@ -39,6 +39,7 @@ Route::get('/dashboard', function () {
 Route::get('/main', [MainController::class, 'index'])->name('main');
 
 
+
 //Routes Resources
 
 Route::resource('/aboutUs', AboutUsController::class);
