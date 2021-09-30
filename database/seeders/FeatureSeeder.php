@@ -19,7 +19,7 @@ class FeatureSeeder extends Seeder
                 'titre' => 'Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.',
                 'description_1' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 'description_2' => ' Ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                'url' => '/'
+                'url' => 'public/assets/img/features-1.png'
             ],
             [
                 'titre' => 'Corporis temporibus maiores provident',
