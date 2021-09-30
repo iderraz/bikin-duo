@@ -8,9 +8,13 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          @foreach ($navbar as $item)
-            <li><a class="nav-link scrollto active" href="#hero">{{ ($item->contenu) }}</a></li>
-          @endforeach
+            <li><a class="nav-link scrollto active" href="#hero">{{ ($navbar[0]->contenu) }}</a></li>
+            <li><a class="nav-link scrollto active" href="#hero">{{ ($navbar[1]->contenu) }}</a></li>
+            <li><a class="nav-link scrollto active" href="#hero">{{ ($navbar[2]->contenu) }}</a></li>
+            <li><a class="nav-link scrollto active" href="#hero">{{ ($navbar[3]->contenu) }}</a></li>
+            <li><a class="nav-link scrollto active" href="#hero">{{ ($navbar[4]->contenu) }}</a></li>
+            <li><a class="nav-link scrollto active" href="#hero">{{ ($navbar[5]->contenu) }}</a></li>
+            <li><a class="nav-link scrollto active" href="#hero">{{ ($navbar[6]->contenu) }}</a></li>
           @auth
 
           <li>

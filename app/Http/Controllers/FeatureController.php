@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Feature;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FeatureController extends Controller
 {
@@ -14,7 +15,8 @@ class FeatureController extends Controller
      */
     public function index()
     {
-        //
+        $feature_description = Feature::all();
+        return view('backoffice.pages.features.features', compact('feature_description'));
     }
 
     /**
@@ -24,7 +26,7 @@ class FeatureController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.pages.features.featuresCreate');
     }
 
     /**
@@ -35,7 +37,26 @@ class FeatureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'titre' => ['required'],
+            'description_1' => ['required'],
+            'description_2' => ['required'],
+            'url' => ['required'],
+        ]);
+
+        $table = new Feature;
+
+        $table -> titre = $request -> titre;
+        $table -> description_1 = $request -> description_1;
+        $table -> description_2 = $request -> description_2;
+        $table -> url = $request -> file('url') -> hashName();
+
+        $table -> save();
+
+        $request -> file("url") -> storePublicly("image", "public");
+
+        return redirect() -> route('feature.index') -> with('message', 'Feature créé !');
+
     }
 
     /**
@@ -46,7 +67,7 @@ class FeatureController extends Controller
      */
     public function show(Feature $feature)
     {
-        //
+        return view('backoffice.pages.features.featuresCreate', compact('feature'));
     }
 
     /**
@@ -57,7 +78,7 @@ class FeatureController extends Controller
      */
     public function edit(Feature $feature)
     {
-        //
+        return view('backoffice.pages.features.featuresEdit', compact('feature'));
     }
 
     /**
@@ -69,7 +90,25 @@ class FeatureController extends Controller
      */
     public function update(Request $request, Feature $feature)
     {
-        //
+        $request->validate([
+            'titre' => ['required'],
+            'description_1' => ['required'],
+            'description_2' => ['required'],
+            'url' => ['required'],
+        ]);
+
+        $feature -> titre = $request -> titre;
+        $feature -> description_1 = $request -> description_1;
+        $feature -> description_2 = $request -> description_2;
+        $feature -> url = $request -> file('url') -> hashName();
+
+        $feature -> save();
+
+        Storage::disk("public") -> delete("image/" . $feature->url);
+
+        $request -> file("url") -> storePublicly("image", "public");
+
+        return redirect() -> route('feature.index') -> with('message', 'Feature modifié !');
     }
 
     /**
@@ -80,6 +119,10 @@ class FeatureController extends Controller
      */
     public function destroy(Feature $feature)
     {
-        //
+        Storage::disk("public") -> delete("image/" . $feature->url);
+
+        $feature -> delete();
+
+        return redirect() -> route('feature.index') -> with('message', 'Feature supprimé !');
     }
 }

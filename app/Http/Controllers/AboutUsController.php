@@ -14,8 +14,8 @@ class AboutUsController extends Controller
      */
     public function index()
     {
-        $about_emoji = AboutUs::all();
-        return view('backoffice.pages.aboutUs.aboutUs', compact('about_emoji'));
+        $about = AboutUs::all();
+        return view('backoffice.pages.aboutUs.aboutUs', compact('about'));
     }
 
     /**
@@ -43,14 +43,14 @@ class AboutUsController extends Controller
             "description" => "required",
 
         ]);
-        $about_emoji = new AboutUs();
+        $about = new AboutUs();
 
-        $about_emoji->emoji = $request->emoji;
-        $about_emoji->titre = $request->titre;
-        $about_emoji->description = $request->description;
-        $about_emoji->save();
+        $about->emoji = $request->emoji;
+        $about->titre = $request->titre;
+        $about->description = $request->description;
+        $about->save();
 
-        return redirect()->route('aboutUs.index')->with('message', 'Modifié avec succès');
+        return redirect()->route('aboutUs.index')->with('message', 'Créé avec succès');
     }
 
     /**
@@ -59,9 +59,9 @@ class AboutUsController extends Controller
      * @param  \App\Models\AboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function show(AboutUs $about_emoji)
+    public function show(AboutUs $about)
     {
-        return view('backoffice.pages.aboutUs.aboutUsShow', compact('about_emoji'));
+        return view('backoffice.pages.aboutUs.aboutUsShow', compact('about'));
         
     }
 
@@ -71,9 +71,9 @@ class AboutUsController extends Controller
      * @param  \App\Models\AboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function edit(AboutUs $about_emoji)
+    public function edit(AboutUs $about)
     {
-        return view('backoffice.pages.aboutUs.aboutUsEdit', compact('about_emoji'));
+        return view('backoffice.pages.aboutUs.aboutUsEdit', compact('about'));
     }
 
     /**
@@ -83,7 +83,7 @@ class AboutUsController extends Controller
      * @param  \App\Models\AboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AboutUs $about_emoji)
+    public function update(Request $request, AboutUs $about)
     {
         $request->validate([
             "emoji"=> "required",
@@ -91,10 +91,10 @@ class AboutUsController extends Controller
             "description"=> "required",
         ]);
 
-        $about_emoji->emoji = $request->emoji;
-        $about_emoji->titre = $request->titre;
-        $about_emoji->description = $request->description;
-        $about_emoji->save();
+        $about->emoji = $request->emoji;
+        $about->titre = $request->titre;
+        $about->description = $request->description;
+        $about->save();
 
         return redirect()->route('aboutUs.index')->with('message', 'Modifié avec succès');
     }
@@ -105,9 +105,9 @@ class AboutUsController extends Controller
      * @param  \App\Models\AboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AboutUs $about_emoji)
+    public function destroy(AboutUs $about)
     {   
-        $about_emoji->delete();
+        $about->delete();
         return redirect()->route('aboutUs.index')->with('message', 'supprimé avec succès');
     }
 }
