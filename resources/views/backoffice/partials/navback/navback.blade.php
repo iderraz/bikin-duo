@@ -31,31 +31,32 @@
            </a>
            <span class="tooltip">Contact</span>
          </li>
-         {{-- <li>
-           <a href="{{route('features.index')}}">
+
+         <li>
+           <a href="{{route('service.index')}}">
             <i class='bx bxs-pizza' ></i>
-             <span class="links_name">Features</span>
+             <span class="links_name">Services</span>
            </a>
-           <span class="tooltip">Features</span>
-         </li> --}}
-         {{-- <li>
-          <a href="{{route('portfolio.index')}}">
+           <span class="tooltip">Services</span>
+         </li>
+         
+        <li>
+          <a href="{{route('team.index')}}">
             <i class='bx bx-chat' ></i>
-            <span class="links_name">Portfolio</span>
+            <span class="links_name">Team</span>
           </a>
-          <span class="tooltip">Portfolio</span>
-        </li> --}}
+          <span class="tooltip">Team</span>
+        </li>
     
     
-        {{-- lien backoffice contact --}}
     
-        {{-- <li>
-          <a href="{{route('section-2.index')}}">
+        <li>
+          <a href="{{route('testimonial.index')}}">
             <i class='bx bxs-user-plus'></i>
-            <span class="links_name">###</span>
+            <span class="links_name">Testimonial</span>
           </a>
-          <span class="tooltip">###</span>
-        </li> --}}
+          <span class="tooltip">Testimonial</span>
+        </li>
     
     
         {{-- <li>
@@ -89,7 +90,7 @@
                     @csrf
                     <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                         this.closest('form').submit();">
-                        {{ __("L.O.") }}
+                        {{ __("Off") }}
                     </x-dropdown-link>
                 </form>
             </a>

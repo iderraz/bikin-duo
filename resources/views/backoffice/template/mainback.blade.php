@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Bienvenue dans mon back</h1>
+    {{-- <h1 id="monback">Bienvenue dans le backoffice</h1> --}}
     @include('backoffice.partials.navback.navback')
     
     <section>

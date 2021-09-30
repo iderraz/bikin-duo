@@ -15,7 +15,7 @@
         </div>
     @endif
 
-        <form id="chefo" class="d-flex flex-column w-75" enctype="multipart/form-data" action="{{ route('about.update', $about->id) }}" method="post">
+        <form id="about" class="d-flex flex-column w-75" enctype="multipart/form-data" action="{{ route('about.update', $about->id) }}" method="post">
             @csrf
             @method('PUT')
 

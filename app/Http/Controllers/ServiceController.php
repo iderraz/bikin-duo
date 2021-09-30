@@ -14,7 +14,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $service = Service::all();
+        return view('backoffice.pages.services.services', compact('service'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.pages.services.servicesCreate');
     }
 
     /**
@@ -35,7 +36,21 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+            "emoji" => "required",
+            "titre" => "required",
+            "description" => "required",
+
+        ]);
+        $service = new Service();
+
+        $service->emoji = $request->emoji;
+        $service->titre = $request->titre;
+        $service->description = $request->description;
+        $service->save();
+
+        return redirect()->route('service.index')->with('message', 'Créé avec succès');
     }
 
     /**
@@ -46,7 +61,7 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        return view('backoffice.pages.services.servicesShow', compact('service'));
     }
 
     /**
@@ -57,7 +72,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('backoffice.pages.services.servicesEdit', compact('service'));
     }
 
     /**
@@ -69,7 +84,18 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $request->validate([
+            "emoji"=> "required",
+            "titre"=> "required",
+            "description"=> "required",
+        ]);
+
+        $service->emoji = $request->emoji;
+        $service->titre = $request->titre;
+        $service->description = $request->description;
+        $service->save();
+
+        return redirect()->route('service.index')->with('message', 'Modifié avec succès');
     }
 
     /**
@@ -80,6 +106,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        return redirect()->route('service.index')->with('message', 'supprimé avec succès');
     }
 }

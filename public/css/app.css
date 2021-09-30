@@ -72,6 +72,11 @@
   }
 }
 
+.centertitle{
+  text-align: center;
+  margin-top: 20px;
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);

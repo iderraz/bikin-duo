@@ -14,7 +14,8 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        $team = Team::all();
+        return view('backoffice.pages.team.team', compact('team'));
     }
 
     /**
@@ -24,7 +25,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.pages.team.teamCreate');
     }
 
     /**
@@ -35,7 +36,23 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+            "url" => "required",
+            "nom" => "required",
+            "fonction" => "required",
+            "icone" => "required",
+
+        ]);
+        $team = new Team();
+
+        $team->url = $request->url;
+        $team->nom = $request->nom;
+        $team->fonction = $request->fonction;
+        $team->icone = $request->icone;
+        $team->save();
+
+        return redirect()->route('team.index')->with('message', 'Créé avec succès');
     }
 
     /**
@@ -46,7 +63,7 @@ class TeamController extends Controller
      */
     public function show(Team $team)
     {
-        //
+        return view('backoffice.pages.team.teamShow', compact('team'));
     }
 
     /**
@@ -57,7 +74,7 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-        //
+        return view('backoffice.pages.team.teamEdit', compact('team'));
     }
 
     /**
@@ -69,7 +86,20 @@ class TeamController extends Controller
      */
     public function update(Request $request, Team $team)
     {
-        //
+        $request->validate([
+            "url"=> "required",
+            "nom"=> "required",
+            "fonction"=> "required",
+            "icone"=> "required",
+        ]);
+
+        $team->url = $request->url;
+        $team->nom = $request->nom;
+        $team->fonction = $request->fonction;
+        $team->icone = $request->icone;
+        $team->save();
+
+        return redirect()->route('team.index')->with('message', 'Modifié avec succès');
     }
 
     /**
@@ -80,6 +110,7 @@ class TeamController extends Controller
      */
     public function destroy(Team $team)
     {
-        //
+        $team->delete();
+        return redirect()->route('team.index')->with('message', 'supprimé avec succès');
     }
 }
