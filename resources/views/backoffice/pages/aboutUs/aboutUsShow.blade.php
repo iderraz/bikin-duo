@@ -13,8 +13,8 @@
                     <p class="card-text">{{ $about->description }}</p>
                     
                     <div class="d-flex justify-content-center mb-5">
-                        <a class="btn btn-warning mx-2" href="{{ route('aboutUs.edit', $about->id) }}">Modifier</a>
-                        <form action="{{ route('aboutUs.destroy', $about->id) }}" method="post">
+                        <a class="btn btn-warning mx-2" href="{{ route('about.edit', $about->id) }}">Modifier</a>
+                        <form action="{{ route('about.destroy', $about->id) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger text-black mx-2" type="submit">Supprimer</button>
