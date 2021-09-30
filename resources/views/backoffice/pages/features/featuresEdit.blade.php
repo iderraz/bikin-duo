@@ -34,6 +34,9 @@
             <label class="form-label">URL</label>
             <input class="form-control" type="file" name="url">
         </div>
+
+        <button class="btn btn-success w-25 mt-3 text-dark" type="submit">Modifier</button>
+        
     </form>
 
 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
 {
@@ -48,6 +49,8 @@ class PortfolioController extends Controller
 
         $table -> save();
 
+        $request -> file("url") -> storePublicly("image", "public");
+
         return redirect() -> route('portfolio.index') -> with('message', 'Elément Portfolio créé !');
         
     }
@@ -60,7 +63,7 @@ class PortfolioController extends Controller
      */
     public function show(Portfolio $portfolio)
     {
-        //
+        return view('backoffice.pages.portfolio.portfolioShow', compact('portfolio'));
     }
 
     /**
@@ -71,7 +74,7 @@ class PortfolioController extends Controller
      */
     public function edit(Portfolio $portfolio)
     {
-        //
+        return view('backoffice.pages.portfolio.portfolioEdit', compact('portfolio'));
     }
 
     /**
@@ -83,7 +86,22 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, Portfolio $portfolio)
     {
-        //
+        $request->validate([
+            'url' => ['required'],
+            'description' => ['required']
+        ]);
+
+        $portfolio -> url = $request -> file('url') -> hashName();
+        $portfolio -> description = $request -> description;
+
+        $portfolio -> save();
+
+        Storage::disk("public") -> delete("image/" . $portfolio->id);
+
+        $request -> file("url") -> storePublicly("image", "public");
+
+        return redirect() -> route('portfolio.index') -> with('message', 'Elément Portfolio modifié !');
+        
     }
 
     /**
@@ -94,6 +112,10 @@ class PortfolioController extends Controller
      */
     public function destroy(Portfolio $portfolio)
     {
-        //
+        Storage::disk("public") -> delete("image/" . $portfolio->id);
+
+        $portfolio -> delete();
+
+        return redirect() -> route('portfolio.index') -> with('message', 'Elément Portfolio supprimé !');
     }
 }

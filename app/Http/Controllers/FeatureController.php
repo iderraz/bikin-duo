@@ -67,7 +67,7 @@ class FeatureController extends Controller
      */
     public function show(Feature $feature)
     {
-        return view('backoffice.pages.features.featuresCreate', compact('feature'));
+        return view('backoffice.pages.features.featuresShow', compact('feature'));
     }
 
     /**

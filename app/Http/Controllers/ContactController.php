@@ -15,7 +15,7 @@ class ContactController extends Controller
     public function index()
     {
         $contact_emoji = Contact::all();
-        return view('backoffice.pages.contact.contact', compact('$contact_emoji'));
+        return view('backoffice.pages.contact.contact', compact('contact_emoji'));
     }
 
     /**
@@ -38,19 +38,19 @@ class ContactController extends Controller
     {
         $request->validate([
 
-            "icone" => "required",
-            "titre" => "required",
-            "contenu" => "required",
+            'icone' => ['required'],
+            'titre' => ['required'],
+            'contenu' => ['required'],
 
         ]);
         $contact_emoji = new Contact();
 
         $contact_emoji->icone = $request->icone;
         $contact_emoji->titre = $request->titre;
-        $contact_emoji->description = $request->description;
+        $contact_emoji->contenu = $request->contenu;
         $contact_emoji->save();
 
-        return redirect()->route('contact.index')->with('message', 'Modifié avec succès');
+        return redirect()->route('contact.index')->with('message', 'Créé avec succès');
     }
 
     /**
@@ -59,9 +59,9 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact_emoji)
+    public function show(Contact $contact)
     {
-        return view('backoffice.pages.contact.contactShow', compact('contact_emoji'));
+        return view('backoffice.pages.contact.contactShow', compact('contact'));
     }
 
     /**
@@ -70,9 +70,9 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact_emoji)
+    public function edit(Contact $contact)
     {
-        return view('backoffice.pages.contact.contactEdit', compact('contact_emoji'));
+        return view('backoffice.pages.contact.contactEdit', compact('contact'));
     }
 
     /**
@@ -82,7 +82,7 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact_emoji)
+    public function update(Request $request, Contact $contact)
     {
         $request->validate([
             "icone"=> "required",
@@ -90,10 +90,10 @@ class ContactController extends Controller
             "contenu"=> "required",
         ]);
 
-        $contact_emoji->icone = $request->icone;
-        $contact_emoji->titre = $request->titre;
-        $contact_emoji->contenu = $request->contenu;
-        $contact_emoji->save();
+        $contact->icone = $request->icone;
+        $contact->titre = $request->titre;
+        $contact->contenu = $request->contenu;
+        $contact->save();
 
         return redirect()->route('contact.index')->with('message', 'Modifié avec succès');
     }
@@ -104,9 +104,9 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact_emoji)
+    public function destroy(Contact $contact)
     {
-        $contact_emoji->delete();
+        $contact->delete();
         return redirect()->route('contact.index')->with('message', 'supprimé avec succès');
     }
 }

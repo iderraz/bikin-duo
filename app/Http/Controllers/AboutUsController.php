@@ -43,12 +43,13 @@ class AboutUsController extends Controller
             "description" => "required",
 
         ]);
-        $about = new AboutUs();
 
-        $about->emoji = $request->emoji;
-        $about->titre = $request->titre;
-        $about->description = $request->description;
-        $about->save();
+        $table = new AboutUs();
+
+        $table->emoji = $request->emoji;
+        $table->titre = $request->titre;
+        $table->description = $request->description;
+        $table->save();
 
         return redirect()->route('about.index')->with('message', 'Créé avec succès');
     }
