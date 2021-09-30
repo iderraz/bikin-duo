@@ -14,7 +14,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contact_emoji = Contact::all();
+        return view('backoffice.pages.contact.contact', compact('$contact_emoji'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.pages.contact.contactCreate');
     }
 
     /**
@@ -35,7 +36,21 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+            "icone" => "required",
+            "titre" => "required",
+            "contenu" => "required",
+
+        ]);
+        $contact_emoji = new Contact();
+
+        $contact_emoji->icone = $request->icone;
+        $contact_emoji->titre = $request->titre;
+        $contact_emoji->description = $request->description;
+        $contact_emoji->save();
+
+        return redirect()->route('contact.index')->with('message', 'Modifié avec succès');
     }
 
     /**
@@ -44,9 +59,9 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show(Contact $contact_emoji)
     {
-        //
+        return view('backoffice.pages.contact.contactShow', compact('contact_emoji'));
     }
 
     /**
@@ -55,9 +70,9 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit(Contact $contact_emoji)
     {
-        //
+        return view('backoffice.pages.contact.contactEdit', compact('contact_emoji'));
     }
 
     /**

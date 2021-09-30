@@ -32,11 +32,9 @@ Route::get('/', function () {
 });
 
 
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
 
 Route::get('/main', [MainController::class, 'index'])->name('main');
 
@@ -56,8 +54,6 @@ Route::resource('/service', ServiceController::class);
 Route::resource('/team', TeamController::class);
 Route::resource('/testimonial', TestimonialController::class);
 Route::resource('/titre', TitreController::class);
-
-
 
 
 require __DIR__.'/auth.php';
