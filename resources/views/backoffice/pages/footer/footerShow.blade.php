@@ -3,9 +3,9 @@
 
 <div class="container">
 
-    <p>ID : {{ ($feature->id) }}</p>
-    <p>links : {{ ($feature->links) }}</p>
-    <p>services : {{ ($feature->services) }}</p>
+    <p>ID : {{ ($footer->id) }}</p>
+    <p>links : {{ ($footer->links) }}</p>
+    <p>services : {{ ($footer->services) }}</p>
 
 </div>
     

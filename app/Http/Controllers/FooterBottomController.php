@@ -15,7 +15,7 @@ class FooterBottomController extends Controller
     public function index()
     {
         $footerBottom = FooterBottom::all();
-        return view('backoffice.partials.footerBottom.footerBottom', compact('footerBottom'));
+        return view('backoffice.pages.footerBottom.footerBottom', compact('footerBottom'));
     }
 
     /**
@@ -25,7 +25,7 @@ class FooterBottomController extends Controller
      */
     public function create()
     {
-        return view('backoffice.partials.footerBottom.footerBottomCreate');
+        return view('backoffice.pages.footerBottom.footerBottomCreate');
     }
 
     /**
@@ -59,7 +59,7 @@ class FooterBottomController extends Controller
      */
     public function show(FooterBottom $footerBottom)
     {
-        return view('backoffice.partials.footerBottom.footerBottomShow', compact('footerBottom'));
+        return view('backoffice.pages.footerBottom.footerBottomShow', compact('footerBottom'));
     }
 
     /**
@@ -70,7 +70,7 @@ class FooterBottomController extends Controller
      */
     public function edit(FooterBottom $footerBottom)
     {
-        return view('backoffice.partials.footerBottom.footerBottomEdit', compact('footerBottom'));
+        return view('backoffice.pages.footerBottom.footerBottomEdit', compact('footerBottom'));
     }
 
     /**

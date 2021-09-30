@@ -15,7 +15,7 @@ class NavbarController extends Controller
     public function index()
     {
         $navbar = Navbar::all();
-        return view('backoffice.partials.navbar.navbar', compact('navbar'));
+        return view('backoffice.pages.navbar.navbar', compact('navbar'));
     }
 
     /**
@@ -25,7 +25,7 @@ class NavbarController extends Controller
      */
     public function create()
     {
-        return view('backoffice.partials.navbar.navbarCreate');
+        return view('backoffice.pages.navbar.navbarCreate');
     }
 
     /**
@@ -58,7 +58,7 @@ class NavbarController extends Controller
      */
     public function show(Navbar $navbar)
     {
-        return view('backoffice.partials.navbar.navbarShow', compact('navbar'));
+        return view('backoffice.pages.navbar.navbarShow', compact('navbar'));
     }
 
     /**
@@ -69,7 +69,7 @@ class NavbarController extends Controller
      */
     public function edit(Navbar $navbar)
     {
-        return view('backoffice.partials.navbar.navbarEdit', compact('navbar'));
+        return view('backoffice.pages.navbar.navbarEdit', compact('navbar'));
     }
 
     /**

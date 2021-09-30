@@ -25,5 +25,10 @@
             <label class="form-label">icone :</label>
             <input type="text" class="form-control" type="text" name="icone" value="{{ $footerBottom->icone }}">
         </div>
+        <button class="btn btn-success w-25 mt-3 text-dark" type="submit">Modifier</button>
+        
+    </form>
+
+</div>
 
 @endsection

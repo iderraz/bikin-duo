@@ -5,7 +5,7 @@
 
     <p>ID : {{ ($footerBottom->id) }}</p>
     <p>titre : {{ ($footerBottom->titre) }}</p>
-    <p>description_1 : {{ ($footerBottom->description_1) }}</p>
+    <p>emoji : {{ ($footerBottom->icone) }}</p>
 
 </div>
 
