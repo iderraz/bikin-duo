@@ -28,6 +28,8 @@
   <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 
   <link rel="stylesheet" href="{{asset("css/app.css")}}">
+  <link rel="stylesheet" href="{{asset("css/tailwind.css")}}">
+
 
 
   <!-- =======================================================
@@ -74,6 +76,8 @@ trree
   <script src="{{asset('assets/js/main.js')}}"></script>
 
 <script src="{{asset("js/app.js")}}"></script>
+<script src="{{asset("js/tailwind.js")}}"></script>
+
 
 </body>
 

@@ -12,7 +12,7 @@
     @endif
 
     <div class="container d-flex justify-content-center">
-        <a class="btn btn-success mt-3 mb-5 fs-4" href="{{route('aboutUs.create')}}">Modifier la Section About</a>
+        <a class="btn btn-success mt-3 mb-5 fs-4" href="{{route('aboutUs.create')}}">Créer</a>
     </div>
 
     <table class="table">
@@ -27,7 +27,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($about_emoji as $data)
+            @foreach($about as $data)
             <tr>
                 <th scope="row">{{$data->id}}</th>
                 <td>{{$data->emoji}}</td>

@@ -15,7 +15,7 @@
         </div>
     @endif
 
-        <form id="chefo" class="d-flex flex-column w-75" enctype="multipart/form-data" action="{{ route('aboutUs.update', $about_emoji->id) }}" method="post">
+        <form id="chefo" class="d-flex flex-column w-75" enctype="multipart/form-data" action="{{ route('aboutUs.update', $about->id) }}" method="post">
             @csrf
             @method('PUT')
 
@@ -23,17 +23,17 @@
     <div>
     <h3 class="text-dark">Changement</h3>
         <label class="text-dark" for="emoji">Emoji : </label>
-        <input name="emoji" id="emoji" value="{{ $about_emoji->emoji }}">
+        <input name="emoji" id="emoji" value="{{ $about->emoji }}">
 
         <br>
 
         <label class="text-dark" for="titre">Titre : </label>
-        <input name="titre" id="titre" value="{{ $about_emoji->titre}}">
+        <input name="titre" id="titre" value="{{ $about->titre}}">
 
         <br>
 
         <label class="text-dark" for="description">Description : </label>
-        <input name="description" id="description" value="{{ $about_emoji->description}}">
+        <input name="description" id="description" value="{{ $about->description}}">
 
     </div>
             <button class="btn btn-success w-25 mt-3 text-dark" type="submit">Modifier</button>
