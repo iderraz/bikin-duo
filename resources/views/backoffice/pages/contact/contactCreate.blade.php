@@ -27,8 +27,8 @@
             <input type="text" class="form-control" type="text" name="icone" value="{{ old('icone') }}">
         </div>
         <div class="mb-3">
-            <label class="form-label">description :</label>
-            <input class="form-control" name="description" value="{{ old('description') }}">
+            <label class="form-label">contenu :</label>
+            <input class="form-control" name="contenu" value="{{ old('contenu') }}">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

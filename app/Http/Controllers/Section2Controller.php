@@ -14,7 +14,8 @@ class Section2Controller extends Controller
      */
     public function index()
     {
-        //
+        $section2 = Section2::all();
+        return view('backoffice.pages.section-2.section-2', compact('section2'));
     }
 
     /**
@@ -24,7 +25,7 @@ class Section2Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.pages.section-2.section-2Create');
     }
 
     /**
@@ -35,7 +36,18 @@ class Section2Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'contenu' => ['required']
+        ]);
+
+        $table = new Section2;
+
+        $table -> contenu = $request -> contenu;
+
+        $table -> save();
+
+        return redirect() -> route('section2.index') -> with('message', 'Contenu créé !');
+
     }
 
     /**
@@ -46,7 +58,7 @@ class Section2Controller extends Controller
      */
     public function show(Section2 $section2)
     {
-        //
+        return view('backoffice.pages.section-2.section-2Show', compact('section2'));
     }
 
     /**
@@ -57,7 +69,7 @@ class Section2Controller extends Controller
      */
     public function edit(Section2 $section2)
     {
-        //
+        return view('backoffice.pages.section-2.section-2Edit', compact('section2'));
     }
 
     /**
@@ -69,7 +81,16 @@ class Section2Controller extends Controller
      */
     public function update(Request $request, Section2 $section2)
     {
-        //
+        $request->validate([
+            'contenu' => ['required']
+        ]);
+
+        $section2 -> contenu = $request -> contenu;
+
+        $section2 -> save();
+
+        return redirect() -> route('section2.index') -> with('message', 'Contenu modifié !');
+        
     }
 
     /**
@@ -80,6 +101,8 @@ class Section2Controller extends Controller
      */
     public function destroy(Section2 $section2)
     {
-        //
+        $section2 -> delete();
+
+        return redirect() -> route('section2.index') -> with('message', 'Contenu supprimé !');
     }
 }
