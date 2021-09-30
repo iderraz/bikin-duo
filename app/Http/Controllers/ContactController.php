@@ -15,7 +15,7 @@ class ContactController extends Controller
     public function index()
     {
         $contact_emoji = Contact::all();
-        return view('backoffice.pages.contact.contact', compact('$contact_emoji'));
+        return view('backoffice.pages.contact.contact', compact('contact_emoji'));
     }
 
     /**
