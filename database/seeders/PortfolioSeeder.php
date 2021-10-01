@@ -16,39 +16,39 @@ class PortfolioSeeder extends Seeder
     {
         DB::table('portfolios')->insert([
             [
-                'url' => '/',
+                'url' => 'portfolio-1.jpg',
                 'description' => 'App 1'
             ],
             [
-                'url' => '/',
+                'url' => 'portfolio-2.jpg',
                 'description' => 'App 2'
             ],
             [
-                'url' => '/',
+                'url' => 'portfolio-3.jpg',
                 'description' => 'App 3'
             ],
             [
-                'url' => '/',
+                'url' => 'portfolio-4.jpg',
                 'description' => 'Web 1'
             ],
             [
-                'url' => '/',
+                'url' => 'portfolio-5.jpg',
                 'description' => 'Web 2'
             ],
             [
-                'url' => '/',
+                'url' => 'portfolio-6.jpg',
                 'description' => 'Web 3'
             ],
             [
-                'url' => '/',
+                'url' => 'portfolio-7.jpg',
                 'description' => 'Card 1'
             ],
             [
-                'url' => '/',
+                'url' => 'portfolio-8.jpg',
                 'description' => 'Card 2'
             ],
             [
-                'url' => '/',
+                'url' => 'portfolio-9.jpg',
                 'description' => 'Card 3'
             ],
         ]);

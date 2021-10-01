@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
 {
+    public function __construct() {
+        $this -> middleware(['isConnected', 'isAdmin']);
+    }
     /**
      * Display a listing of the resource.
      *

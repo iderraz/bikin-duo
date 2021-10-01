@@ -14,6 +14,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\TitreController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +56,7 @@ Route::resource('/service', ServiceController::class);
 Route::resource('/team', TeamController::class);
 Route::resource('/testimonial', TestimonialController::class);
 Route::resource('/titre', TitreController::class);
+Route::resource('/user', UserController::class);
 
 
 require __DIR__.'/auth.php';

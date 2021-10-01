@@ -9,7 +9,7 @@
   
           <div class="row content">
             <div class="col-md-5" data-aos="fade-right" data-aos-delay="100">
-              <img src="{{asset('assets/img/features-1.png')}}" class="img-fluid" alt="">
+              <img src="{{asset('assets/img/' . $feature_description[0]->url)}}" class="img-fluid" alt="">
             </div>
             <div class="col-md-7 pt-4" data-aos="fade-left" data-aos-delay="100">
               <h3>{{ ($feature_description[0]->titre) }}</h3>
@@ -26,7 +26,7 @@
   
           <div class="row content">
             <div class="col-md-5 order-1 order-md-2" data-aos="fade-left">
-              <img src="{{asset('assets/img/features-2.png')}}" class="img-fluid" alt="">
+              <img src="{{asset('assets/img/' . $feature_description[1]->url)}}" class="img-fluid" alt="">
             </div>
             <div class="col-md-7 pt-5 order-2 order-md-1" data-aos="fade-right">
               <h3>{{ ($feature_description[1]->titre) }}</h3>
@@ -41,7 +41,7 @@
   
           <div class="row content">
             <div class="col-md-5" data-aos="fade-right">
-              <img src="{{asset('assets/img/features-3.png')}}" class="img-fluid" alt="">
+              <img src="{{asset('assets/img/' . $feature_description[2]->url)}}" class="img-fluid" alt="">
             </div>
             <div class="col-md-7 pt-5" data-aos="fade-left">
               <h3>{{ ($feature_description[2]->titre) }}</h3>
@@ -56,7 +56,7 @@
   
           <div class="row content">
             <div class="col-md-5 order-1 order-md-2" data-aos="fade-left">
-              <img src="{{asset('assets/img/features-4.png')}}" class="img-fluid" alt="">
+              <img src="{{asset('assets/img/' . $feature_description[3]->url)}}" class="img-fluid" alt="">
             </div>
             <div class="col-md-7 pt-5 order-2 order-md-1" data-aos="fade-right">
               <h3>{{ ($feature_description[3]->titre) }}</h3>

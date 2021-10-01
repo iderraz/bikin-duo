@@ -24,7 +24,7 @@
                 <th scope="col">Url</th>
                 <th scope="col">Nom</th>
                 <th scope="col">Fonction</th>
-                <th scope="col">Icone</th>
+                <th scope="col">description</th>
                 <th></th>
 
             </tr>
@@ -36,7 +36,7 @@
                 <td>{{$data->url}}</td>
                 <td>{{$data->nom}}</td>
                 <td>{{$data->fonction}}</td>
-                <td>{{$data->icone}}</td>
+                <td>{{$data->description}}</td>
                 <td>
                 <div class="d-flex justify-content-around my-3">
                                 <a class="btn btn-primary text-black" href="{{route('testimonial.show', $data->id)}}">Détails</a>

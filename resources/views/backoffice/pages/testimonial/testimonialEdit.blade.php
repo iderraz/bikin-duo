@@ -33,8 +33,8 @@
         <label class="text-dark" for="fonction">Fonction  : </label>
         <input name="fonction" id="fonction" value="{{ $testimonial->fonction }}">
 
-        <label class="text-dark" for="icone">Icône  : </label>
-        <input name="icone" id="icone" value="{{ $testimonial->icone }}">
+        <label class="text-dark" for="description">description  : </label>
+        <input name="description" id="description" value="{{ $testimonial->description }}">
 
     </div>
             <button class="btn btn-success w-25 mt-3 text-dark" type="submit">Modifier</button>

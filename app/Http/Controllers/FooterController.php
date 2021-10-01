@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class FooterController extends Controller
 {
+    public function __construct() {
+        $this -> middleware(['isConnected', 'isAdmin']);
+    }
     /**
      * Display a listing of the resource.
      *

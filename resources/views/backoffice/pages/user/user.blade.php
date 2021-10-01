@@ -3,9 +3,9 @@
 
 <div class="container d-flex justify-content-center">
 
-    <h1>titre</h1>
+    <h1>user</h1>
     <button class="m-2 rounded bg-primary">
-        <a href="{{ route('titre.create') }}"><p class="text-dark text-decoration-none">Ajouter</p></a>
+        <a href="{{ route('user.create') }}"><p class="text-dark text-decoration-none">Ajouter</p></a>
     </button>
 
 </div>
@@ -17,8 +17,10 @@
         <thead >
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Titre</th>
-                <th scope="col">Description </th>
+                <th scope="col">name</th>
+                <th scope="col">email</th>
+                <th scope="col">password</th>
+                <th scope="col">role</th>
             </tr>
         </thead>
 
@@ -30,23 +32,25 @@
             </div>
         @endif
 
-        @foreach($titre as $item)
+        @foreach($user as $item)
 
             <tr>
                 <th scope="row">{{ ($item->id) }}</th>
-                <td>{{ ($item->titre) }}</td>
-                <td>{{ ($item->description) }}</td>
+                <td>{{ ($item->name) }}</td>
+                <td>{{ ($item->email) }}</td>
+                <td>{{ ($item->password) }}</td>
+                <td>{{ ($item->role->id) }}</td>
                 <td>
                     <div class="d-flex">
-                        <form action="{{ route('titre.destroy', $item->id) }}" method="post">
+                        <form action="{{ route('user.destroy', $item->id) }}" method="post">
                             @method('DELETE')
                             @csrf
                             <button class="rounded m-3 bg-danger" type="submit">Delete</button>
                         </form>
 
-                        <button class="rounded m-3 bg-warning"><a class="text-decoration-none text-dark" href="{{ route('titre.show', $item->id)}}">Show</a></button>
+                        <button class="rounded m-3 bg-warning"><a class="text-decoration-none text-dark" href="{{ route('user.show', $item->id)}}">Show</a></button>
 
-                        <button class="rounded m-3 bg-success"><a class="text-decoration-none text-dark" href="{{ route('titre.edit', $item->id)}}">Update</a></button>
+                        <button class="rounded m-3 bg-success"><a class="text-decoration-none text-dark" href="{{ route('user.edit', $item->id)}}">Update</a></button>
                     </div>
                 </td>
             </tr>

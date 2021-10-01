@@ -57,7 +57,93 @@
           </a>
           <span class="tooltip">Testimonial</span>
         </li>
-    
+
+        <li>
+          <a href="{{route('user.index')}}">
+            <i class='bx bxs-user-plus'></i>
+            <span class="links_name">User</span>
+          </a>
+          <span class="tooltip">User</span>
+        </li>
+
+        <li>
+          <a href="{{route('feature.index')}}">
+            <i class='bx bxs-user-plus'></i>
+            <span class="links_name">Feature</span>
+          </a>
+          <span class="tooltip">Feature</span>
+        </li>
+
+        <li>
+          <a href="{{route('main')}}">
+           <i class='bx bx-left-arrow-alt' ></i>
+             <span class="links_name">Retour Front</span>
+          </a>
+          <span class="tooltip">Retour Front</span>
+        </li>
+   
+   
+        <li>
+           <a href="#">
+               <form method="POST" class="nav-link py-3 px-0 pl-5 rounded" action="{{ route('logout') }}">
+                   @csrf
+                   <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                       this.closest('form').submit();">
+                       {{ __("Off") }}
+                   </x-dropdown-link>
+               </form>
+           </a>
+   
+           <span class="tooltip">Log Out</span>
+       </li>
+
+        <li>
+          <a href="{{route('titre.index')}}">
+            <i class='bx bxs-user-plus'></i>
+            <span class="links_name">Titres</span>
+          </a>
+          <span class="tooltip">Titres</span>
+        </li>
+
+        <li>
+          <a href="{{route('navbar.index')}}">
+            <i class='bx bxs-user-plus'></i>
+            <span class="links_name">Navbar</span>
+          </a>
+          <span class="tooltip">Navbar</span>
+        </li>
+
+        <li>
+          <a href="{{route('section2.index')}}">
+            <i class='bx bxs-user-plus'></i>
+            <span class="links_name">Section 2</span>
+          </a>
+          <span class="tooltip">Section 2</span>
+        </li>
+
+        <li>
+          <a href="{{route('portfolio.index')}}">
+            <i class='bx bxs-user-plus'></i>
+            <span class="links_name">Portfolio</span>
+          </a>
+          <span class="tooltip">Portfolio</span>
+        </li>
+
+        <li>
+          <a href="{{route('footer.index')}}">
+            <i class='bx bxs-user-plus'></i>
+            <span class="links_name">Footer</span>
+          </a>
+          <span class="tooltip">Footer</span>
+        </li>
+
+        <li>
+          <a href="{{route('footerBottom.index')}}">
+            <i class='bx bxs-user-plus'></i>
+            <span class="links_name">Footer Bottom</span>
+          </a>
+          <span class="tooltip">Footer Bottom</span>
+        </li>
     
         {{-- <li>
           <a href={{route('footer')}}>

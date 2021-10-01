@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class TitreController extends Controller
 {
+    public function __construct() {
+        $this -> middleware(['isConnected', 'isAdmin']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +17,8 @@ class TitreController extends Controller
      */
     public function index()
     {
-        //
+        $titre = Titre::all();
+        return view('backoffice.pages.titre.titre', compact('titre'));
     }
 
     /**
@@ -24,7 +28,7 @@ class TitreController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.pages.titre.titreCreate');
     }
 
     /**
@@ -35,7 +39,20 @@ class TitreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'titre' => ['required'],
+            'description' => ['required']
+        ]);
+
+        $table = new Titre;
+
+        $table -> titre = $request -> titre;
+        $table -> description = $request -> description;
+
+        $table -> save();
+
+        return redirect() -> route('titre.index') -> with('message', 'Titre ajouté !');
+
     }
 
     /**
@@ -46,7 +63,7 @@ class TitreController extends Controller
      */
     public function show(Titre $titre)
     {
-        //
+        return view('backoffice.pages.titre.titreShow', compact('titre'));
     }
 
     /**
@@ -57,7 +74,7 @@ class TitreController extends Controller
      */
     public function edit(Titre $titre)
     {
-        //
+        return view('backoffice.pages.titre.titreEdit', compact('titre'));
     }
 
     /**
@@ -69,7 +86,18 @@ class TitreController extends Controller
      */
     public function update(Request $request, Titre $titre)
     {
-        //
+        $request->validate([
+            'titre' => ['required'],
+            'description' => ['required']
+        ]);
+
+        $titre -> titre = $request -> titre;
+        $titre -> description = $request -> description;
+
+        $titre -> save();
+
+        return redirect() -> route('titre.index') -> with('message', 'Titre modifié !');
+        
     }
 
     /**
@@ -80,6 +108,8 @@ class TitreController extends Controller
      */
     public function destroy(Titre $titre)
     {
-        //
+        $titre -> delete();
+
+        return redirect() -> route('titre.index') -> with('message', 'Titre supprimé !');
     }
 }

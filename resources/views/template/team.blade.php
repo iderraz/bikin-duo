@@ -11,7 +11,7 @@
   
             <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
               <div class="member">
-                <img src="{{asset('assets/img/team/team-1.jpg')}}" class="img-fluid" alt="">
+                <img src="{{asset('assets/img/team/'. $team_image[0]->url)}}" class="img-fluid" alt="">
                 <div class="member-info">
                   <div class="member-info-content">
                     <h4>{{ ($team_image[0]->nom) }}</h4>
@@ -29,7 +29,7 @@
   
             <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
               <div class="member">
-                <img src="{{asset('assets/img/team/team-2.jpg')}}" class="img-fluid" alt="">
+                <img src="{{asset('assets/img/team/'. $team_image[1]->url)}}" class="img-fluid" alt="">
                 <div class="member-info">
                   <div class="member-info-content">
                     <h4>{{ ($team_image[1]->nom) }}</h4>
@@ -47,7 +47,7 @@
   
             <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
               <div class="member">
-                <img src="{{asset('assets/img/team/team-3.jpg')}}" class="img-fluid" alt="">
+                <img src="{{asset('assets/img/team/'. $team_image[2]->url)}}" class="img-fluid" alt="">
                 <div class="member-info">
                   <div class="member-info-content">
                     <h4>{{ ($team_image[2]->nom) }}</h4>
@@ -65,7 +65,7 @@
   
             <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
               <div class="member">
-                <img src="{{asset('assets/img/team/team-4.jpg')}}" class="img-fluid" alt="">
+                <img src="{{asset('assets/img/team/'. $team_image[3]->url)}}" class="img-fluid" alt="">
                 <div class="member-info">
                   <div class="member-info-content">
                     <h4>{{ ($team_image[3]->nom) }}</h4>

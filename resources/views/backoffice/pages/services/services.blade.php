@@ -54,6 +54,4 @@
     </table>
 </section>
 
-
-
 @endsection

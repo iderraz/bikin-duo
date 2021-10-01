@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct() {
+        $this -> middleware(['isConnected', 'isAdmin']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::all();
+        return view('backoffice.pages.user.user', compact('user'));
     }
 
     /**
@@ -24,7 +28,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $user = User::all();
+        return view('backoffice.pages.user.userCreate', compact('user'));
     }
 
     /**
@@ -35,7 +40,23 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required'],
+            'email' => ['required'],
+            'password' => ['required']
+        ]);
+
+        $table = new User;
+
+        $table -> name = $request -> name;
+        $table -> email = $request -> email;
+        $table -> password = $request -> password;
+        $table -> role_id = $request -> role_id;
+
+        $table -> save();
+
+        return redirect() -> route('user.index') -> with('message', 'User créé !');
+
     }
 
     /**
@@ -46,7 +67,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('backoffice.pages.user.userShow', compact('user'));
     }
 
     /**
@@ -57,7 +78,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('backoffice.pages.user.userEdit', compact('user'));
     }
 
     /**
@@ -69,7 +90,20 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'name' => ['required'],
+            'email' => ['required'],
+            'password' => ['required']
+        ]);
+
+        $user -> name = $request -> name;
+        $user -> email = $request -> email;
+        $user -> password = $request -> password;
+
+        $user -> save();
+
+        return redirect() -> route('user.index') -> with('message', 'User modifié !');
+        
     }
 
     /**
@@ -80,6 +114,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user -> delete();
+
+        return redirect() -> route('user.index') -> with('message', 'User supprimé !');
     }
 }

@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AboutUsController extends Controller
 {
+    public function __construct() {
+        $this -> middleware(['isConnected', 'isAdmin']);
+    }
+
     /**
      * Display a listing of the resource.
      *

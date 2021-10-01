@@ -19,7 +19,7 @@
                     {{ ($item->description) }}
                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                   </p>
-                  <img src="{{asset('assets/img/testimonials/testimonials-1.jpg')}}" class="testimonial-img" alt="">
+                  <img src="{{asset('assets/img/testimonials/'. $item->url)}}" class="testimonial-img" alt="">
                   <h3>{{ ($item->nom) }}</h3>
                   <h4>{{ ($item->fonction) }}</h4>
                 </div>
