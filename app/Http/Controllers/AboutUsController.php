@@ -29,7 +29,6 @@ class AboutUsController extends Controller
      */
     public function create()
     {
-
         return view('backoffice.pages.aboutUs.aboutUsCreate');
     }
 
@@ -69,7 +68,6 @@ class AboutUsController extends Controller
      */
     public function show(AboutUs $about)
     {
-
         return view('backoffice.pages.aboutUs.aboutUsShow', compact('about'));
     }
 
@@ -81,7 +79,6 @@ class AboutUsController extends Controller
      */
     public function edit(AboutUs $about)
     {
-
         return view('backoffice.pages.aboutUs.aboutUsEdit', compact('about'));
     }
 

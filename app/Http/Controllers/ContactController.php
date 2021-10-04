@@ -28,8 +28,6 @@ class ContactController extends Controller
      */
     public function create()
     {
-        $this->authorize("create", Contact::class);
-
         return view('backoffice.pages.contact.contactCreate');
     }
 
@@ -79,8 +77,6 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        $this->authorize("update", Contact::class);
-
         return view('backoffice.pages.contact.contactEdit', compact('contact'));
     }
 
@@ -93,7 +89,7 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        $this->authorize("update", Contact::class);
+        $this->authorize("update", $contact);
 
         $request->validate([
             "icone"=> "required",
@@ -117,6 +113,7 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
+        $this->authorize("delete", $contact);
         $contact->delete();
         return redirect()->route('contact.index')->with('message', 'supprimé avec succès');
     }

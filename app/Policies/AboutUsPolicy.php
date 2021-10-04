@@ -30,7 +30,7 @@ class AboutUsPolicy
      */
     public function view(User $user, AboutUs $aboutUs)
     {
-        return in_array($user->role_id,[1,2]);
+        return in_array([$user->role_id,[1,2]], [$aboutUs->id]);
     }
 
     /**

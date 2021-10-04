@@ -28,7 +28,6 @@ class FooterBottomController extends Controller
      */
     public function create()
     {
-        $this->authorize("create", FooterBottom::class);
         return view('backoffice.pages.footerBottom.footerBottomCreate');
     }
 
@@ -76,8 +75,6 @@ class FooterBottomController extends Controller
      */
     public function edit(FooterBottom $footerBottom)
     {
-        $this->authorize("update",FooterBottom::class);
-
         return view('backoffice.pages.footerBottom.footerBottomEdit', compact('footerBottom'));
     }
 
@@ -90,7 +87,7 @@ class FooterBottomController extends Controller
      */
     public function update(Request $request, FooterBottom $footerBottom)
     {
-        $this->authorize("update",FooterBottom::class);
+        $this->authorize("update", $footerBottom);
 
         $request->validate([
             'titre' => ['required'],
@@ -114,6 +111,8 @@ class FooterBottomController extends Controller
      */
     public function destroy(FooterBottom $footerBottom)
     {
+        $this->authorize("delete", $footerBottom);
+
         $footerBottom -> delete();
 
         return redirect() -> route('footerBottom.index') -> with('message', 'footer supprimé !');
