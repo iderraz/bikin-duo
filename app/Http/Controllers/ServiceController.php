@@ -28,7 +28,6 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        $this->authorize("create", Service::class);
         return view('backoffice.pages.services.servicesCreate');
     }
 
@@ -77,7 +76,6 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        $this->authorize("update", Service::class);
         return view('backoffice.pages.services.servicesEdit', compact('service'));
     }
 
@@ -90,7 +88,7 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        $this->authorize("update", Service::class);
+        $this->authorize("update", $service);
         $request->validate([
             "emoji"=> "required",
             "titre"=> "required",
@@ -113,6 +111,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
+        $this->authorize("update", $service);
         $service->delete();
         return redirect()->route('service.index')->with('message', 'supprimé avec succès');
     }
