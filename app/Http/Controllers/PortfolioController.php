@@ -29,6 +29,7 @@ class PortfolioController extends Controller
      */
     public function create()
     {
+        $this->authorize("create", AboutUs::class);
         return view('backoffice.pages.portfolio.portfolioCreate');
     }
 
@@ -40,6 +41,7 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize("create", AboutUs::class);
         $request->validate([
             'url' => ['required'],
             'description' => ['required']
@@ -77,6 +79,7 @@ class PortfolioController extends Controller
      */
     public function edit(Portfolio $portfolio)
     {
+        $this->authorize("edit", AboutUs::class);
         return view('backoffice.pages.portfolio.portfolioEdit', compact('portfolio'));
     }
 
@@ -89,6 +92,7 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, Portfolio $portfolio)
     {
+        $this->authorize("update",AboutUs::class);
         $request->validate([
             'url' => ['required'],
             'description' => ['required']

@@ -28,6 +28,7 @@ class TitreController extends Controller
      */
     public function create()
     {
+        $this->authorize("create", AboutUs::class);
         return view('backoffice.pages.titre.titreCreate');
     }
 
@@ -39,6 +40,7 @@ class TitreController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize("create", AboutUs::class);
         $request->validate([
             'titre' => ['required'],
             'description' => ['required']
@@ -74,6 +76,8 @@ class TitreController extends Controller
      */
     public function edit(Titre $titre)
     {
+        $this->authorize("update", AboutUs::class);
+
         return view('backoffice.pages.titre.titreEdit', compact('titre'));
     }
 
@@ -86,6 +90,7 @@ class TitreController extends Controller
      */
     public function update(Request $request, Titre $titre)
     {
+        $this->authorize("update", AboutUs::class);
         $request->validate([
             'titre' => ['required'],
             'description' => ['required']
