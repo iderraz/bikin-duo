@@ -33,7 +33,13 @@ class AuthServiceProvider extends ServiceProvider
             return $user->role->role != 'Editeur';
         });
 
-        
+        Gate::define('fullAccess', function($user) {
+            return $user->role->role == 'Admin' || $user->role->role == 'Webmaster';
+        });
+
+        Gate::define('Access', function($user) {
+            return $user->role->role == 'Admin' || $user->role->role == 'Webmaster' || $user->role->role == 'Editeur' ;
+        });
 
     }
 }

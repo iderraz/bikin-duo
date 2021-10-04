@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
 
 class AboutUsController extends Controller
@@ -68,6 +69,8 @@ class AboutUsController extends Controller
      */
     public function show(AboutUs $about)
     {
+        $this -> authorize('fullAccess');
+
         return view('backoffice.pages.aboutUs.aboutUsShow', compact('about'));
     }
 
@@ -79,6 +82,8 @@ class AboutUsController extends Controller
      */
     public function edit(AboutUs $about)
     {
+       $this -> authorize('fullAccess');
+
         return view('backoffice.pages.aboutUs.aboutUsEdit', compact('about'));
     }
 
