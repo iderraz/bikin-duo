@@ -29,7 +29,7 @@ class AboutUsController extends Controller
      */
     public function create()
     {
-        $this->authorize("create", AboutUs::class);
+
         return view('backoffice.pages.aboutUs.aboutUsCreate');
     }
 
@@ -81,7 +81,6 @@ class AboutUsController extends Controller
      */
     public function edit(AboutUs $about)
     {
-        $this->authorize("update",AboutUs::class);
 
         return view('backoffice.pages.aboutUs.aboutUsEdit', compact('about'));
     }
@@ -95,8 +94,7 @@ class AboutUsController extends Controller
      */
     public function update(Request $request, AboutUs $about)
     {
-        $this->authorize("update",AboutUs::class);
-
+        $this->authorize("update", $about);
         $request->validate([
             "emoji"=> "required",
             "titre"=> "required",
@@ -119,6 +117,8 @@ class AboutUsController extends Controller
      */
     public function destroy(AboutUs $about)
     {   
+
+        $this->authorize("delete", $about);
         $about->delete();
 
         return redirect()->route('about.index')->with('message', 'supprimé avec succès');
