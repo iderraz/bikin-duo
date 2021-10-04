@@ -29,7 +29,6 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        $this->authorize("create", Portfolio::class);
         return view('backoffice.pages.portfolio.portfolioCreate');
     }
 
@@ -42,6 +41,7 @@ class PortfolioController extends Controller
     public function store(Request $request)
     {
         $this->authorize("create", Portfolio::class);
+
         $request->validate([
             'url' => ['required'],
             'description' => ['required']
@@ -79,7 +79,6 @@ class PortfolioController extends Controller
      */
     public function edit(Portfolio $portfolio)
     {
-        $this->authorize("edit", Portfolio::class);
         return view('backoffice.pages.portfolio.portfolioEdit', compact('portfolio'));
     }
 
@@ -92,7 +91,8 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, Portfolio $portfolio)
     {
-        $this->authorize("update",Portfolio::class);
+        $this->authorize("update", $portfolio);
+
         $request->validate([
             'url' => ['required'],
             'description' => ['required']
@@ -119,6 +119,8 @@ class PortfolioController extends Controller
      */
     public function destroy(Portfolio $portfolio)
     {
+        $this->authorize("delete", $portfolio);
+
         Storage::disk("public") -> delete("image/" . $portfolio->id);
 
         $portfolio -> delete();

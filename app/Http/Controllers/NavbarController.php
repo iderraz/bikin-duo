@@ -28,8 +28,6 @@ class NavbarController extends Controller
      */
     public function create()
     {
-        $this->authorize("create", Navbar::class);
-
         return view('backoffice.pages.navbar.navbarCreate');
     }
 
@@ -76,8 +74,6 @@ class NavbarController extends Controller
      */
     public function edit(Navbar $navbar)
     {
-        $this->authorize("update",Navbar::class);
-
         return view('backoffice.pages.navbar.navbarEdit', compact('navbar'));
     }
 
@@ -90,7 +86,7 @@ class NavbarController extends Controller
      */
     public function update(Request $request, Navbar $navbar)
     {
-        $this->authorize("update",Navbar::class);
+        $this->authorize("update", $navbar);
 
         $request->validate([
             'contenu' => ['required']
@@ -112,6 +108,8 @@ class NavbarController extends Controller
      */
     public function destroy(Navbar $navbar)
     {
+        $this->authorize("delete", $navbar);
+
         $navbar -> delete();
 
         return redirect() -> route('navbar.index') -> with('message', 'élément Navbar supprimé !');
