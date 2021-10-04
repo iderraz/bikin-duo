@@ -64,6 +64,7 @@ class TitreController extends Controller
      */
     public function show(Titre $titre)
     {
+        $this -> authorize('fullAccess');
         return view('backoffice.pages.titre.titreShow', compact('titre'));
     }
 
@@ -75,6 +76,7 @@ class TitreController extends Controller
      */
     public function edit(Titre $titre)
     {
+        $this -> authorize('fullAccess');
         return view('backoffice.pages.titre.titreEdit', compact('titre'));
     }
 

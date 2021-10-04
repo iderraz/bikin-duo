@@ -70,6 +70,7 @@ class TestimonialController extends Controller
      */
     public function show(Testimonial $testimonial)
     {
+        $this -> authorize('Access');
         $this->authorize("view", Testimonial::class);
 
         return view('backoffice.pages.testimonial.testimonialShow', compact('testimonial'));
@@ -83,6 +84,7 @@ class TestimonialController extends Controller
      */
     public function edit(Testimonial $testimonial)
     {
+        $this -> authorize('Access');
         return view('backoffice.pages.testimonial.testimonialEdit', compact('testimonial'));
     }
 

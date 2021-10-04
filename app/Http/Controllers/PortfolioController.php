@@ -68,6 +68,7 @@ class PortfolioController extends Controller
      */
     public function show(Portfolio $portfolio)
     {
+        $this -> authorize('fullAccess');
         return view('backoffice.pages.portfolio.portfolioShow', compact('portfolio'));
     }
 
@@ -79,6 +80,7 @@ class PortfolioController extends Controller
      */
     public function edit(Portfolio $portfolio)
     {
+        $this -> authorize('fullAccess');
         return view('backoffice.pages.portfolio.portfolioEdit', compact('portfolio'));
     }
 

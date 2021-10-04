@@ -62,6 +62,7 @@ class Section2Controller extends Controller
      */
     public function show(Section2 $section2)
     {
+        $this -> authorize('fullAccess');
         return view('backoffice.pages.section-2.section-2Show', compact('section2'));
     }
 
@@ -73,6 +74,7 @@ class Section2Controller extends Controller
      */
     public function edit(Section2 $section2)
     {
+        $this -> authorize('fullAccess');
         return view('backoffice.pages.section-2.section-2Edit', compact('section2'));
     }
 

@@ -65,6 +65,7 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
+        $this -> authorize('fullAccess');
         return view('backoffice.pages.services.servicesShow', compact('service'));
     }
 
@@ -76,6 +77,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
+        $this -> authorize('fullAccess');
         return view('backoffice.pages.services.servicesEdit', compact('service'));
     }
 

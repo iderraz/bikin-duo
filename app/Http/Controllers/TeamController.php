@@ -68,6 +68,7 @@ class TeamController extends Controller
      */
     public function show(Team $team)
     {
+        $this -> authorize('fullAccess');
         return view('backoffice.pages.team.teamShow', compact('team'));
     }
 
@@ -79,6 +80,7 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
+        $this -> authorize('fullAccess');
         return view('backoffice.pages.team.teamEdit', compact('team'));
     }
 
