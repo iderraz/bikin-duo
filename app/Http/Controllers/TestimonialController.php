@@ -56,7 +56,7 @@ class TestimonialController extends Controller
         $testimonial->nom = $request->nom;
         $testimonial->fonction = $request->fonction;
         $testimonial->description = $request->description;
-        $testimonial->url = $request->file("url")->hashName();
+        // $testimonial->url = $request->file("url")->hashName();
         $testimonial->save();
 
         $request->file('url')->storePublicly('img', 'public');

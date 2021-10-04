@@ -41,7 +41,7 @@ class ContactPolicy
      */
     public function create(User $user)
     {
-        //
+        return in_array($user->role_id,[1,2]);
     }
 
     /**
@@ -53,7 +53,7 @@ class ContactPolicy
      */
     public function update(User $user, Contact $contact)
     {
-        //
+        return in_array($user->role_id,[1,2]);
     }
 
     /**
@@ -65,7 +65,7 @@ class ContactPolicy
      */
     public function delete(User $user, Contact $contact)
     {
-        //
+        return in_array($user->role_id,[1,2]);
     }
 
     /**

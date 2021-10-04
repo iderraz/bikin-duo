@@ -29,6 +29,8 @@ class FeatureController extends Controller
      */
     public function create()
     {
+        $this->authorize("create", Feature::class);
+
         return view('backoffice.pages.features.featuresCreate');
     }
 
@@ -40,6 +42,8 @@ class FeatureController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize("create", Feature::class);
+
         $request->validate([
             'titre' => ['required'],
             'description_1' => ['required'],
@@ -81,6 +85,8 @@ class FeatureController extends Controller
      */
     public function edit(Feature $feature)
     {
+        $this->authorize("update", Feature::class);
+
         return view('backoffice.pages.features.featuresEdit', compact('feature'));
     }
 
@@ -93,6 +99,8 @@ class FeatureController extends Controller
      */
     public function update(Request $request, Feature $feature)
     {
+        $this->authorize("update", Feature::class);
+
         $request->validate([
             'titre' => ['required'],
             'description_1' => ['required'],

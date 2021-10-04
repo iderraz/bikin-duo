@@ -32,5 +32,8 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('editeur', function($user) {
             return $user->role->role != 'Editeur';
         });
+
+        
+
     }
 }

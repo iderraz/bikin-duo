@@ -17,7 +17,7 @@ class CreateTestimonialsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('description')->nullable();
-            $table->string('url')->nullable();
+            $table->string('url');
             $table->string('nom')->nullable();
             $table->string('fonction')->nullable();
         });
