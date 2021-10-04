@@ -41,7 +41,7 @@ class FeaturePolicy
      */
     public function create(User $user)
     {
-        //
+        return in_array($user->role_id,[1,2]);
     }
 
     /**
@@ -53,7 +53,7 @@ class FeaturePolicy
      */
     public function update(User $user, Feature $feature)
     {
-        //
+        return in_array($user->role_id,[1,2]);
     }
 
     /**
@@ -65,7 +65,7 @@ class FeaturePolicy
      */
     public function delete(User $user, Feature $feature)
     {
-        //
+        return in_array($user->role_id,[1,2]);
     }
 
     /**

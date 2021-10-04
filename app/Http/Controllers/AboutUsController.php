@@ -41,7 +41,8 @@ class AboutUsController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->authorize("create", AboutUs::class);
+        $this->authorize("create", AboutUs::class);
+
         $request->validate([
 
             "emoji" => "required",
@@ -69,7 +70,6 @@ class AboutUsController extends Controller
     public function show(AboutUs $about)
     {
         return view('backoffice.pages.aboutUs.aboutUsShow', compact('about'));
-        
     }
 
     /**
@@ -80,7 +80,8 @@ class AboutUsController extends Controller
      */
     public function edit(AboutUs $about)
     {
-        $this->authorize("edit", AboutUs::class);
+        $this->authorize("update",AboutUs::class);
+
         return view('backoffice.pages.aboutUs.aboutUsEdit', compact('about'));
     }
 
@@ -94,6 +95,7 @@ class AboutUsController extends Controller
     public function update(Request $request, AboutUs $about)
     {
         $this->authorize("update",AboutUs::class);
+
         $request->validate([
             "emoji"=> "required",
             "titre"=> "required",
@@ -116,8 +118,8 @@ class AboutUsController extends Controller
      */
     public function destroy(AboutUs $about)
     {   
-        $this->authorize("delete", AboutUs::class);
         $about->delete();
+
         return redirect()->route('about.index')->with('message', 'supprimé avec succès');
     }
 }

@@ -41,7 +41,7 @@ class NavbarPolicy
      */
     public function create(User $user)
     {
-        //
+        return in_array($user->role_id,[1,2]);
     }
 
     /**
@@ -53,7 +53,7 @@ class NavbarPolicy
      */
     public function update(User $user, Navbar $navbar)
     {
-        //
+        return in_array($user->role_id,[1,2]);
     }
 
     /**
@@ -65,7 +65,7 @@ class NavbarPolicy
      */
     public function delete(User $user, Navbar $navbar)
     {
-        //
+        return in_array($user->role_id,[1,2]);
     }
 
     /**

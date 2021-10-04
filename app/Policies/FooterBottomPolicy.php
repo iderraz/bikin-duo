@@ -41,7 +41,7 @@ class FooterBottomPolicy
      */
     public function create(User $user)
     {
-        //
+        return in_array($user->role_id,[1,2]);
     }
 
     /**
@@ -53,7 +53,7 @@ class FooterBottomPolicy
      */
     public function update(User $user, FooterBottom $footerBottom)
     {
-        //
+        return in_array($user->role_id,[1,2]);
     }
 
     /**
@@ -65,7 +65,7 @@ class FooterBottomPolicy
      */
     public function delete(User $user, FooterBottom $footerBottom)
     {
-        //
+        return in_array($user->role_id,[1,2]);
     }
 
     /**

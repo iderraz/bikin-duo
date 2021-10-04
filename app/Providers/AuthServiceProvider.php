@@ -33,5 +33,7 @@ class AuthServiceProvider extends ServiceProvider
             return $user->role->role != 'Editeur';
         });
 
+        
+
     }
 }
