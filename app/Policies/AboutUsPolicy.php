@@ -18,7 +18,7 @@ class AboutUsPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        
     }
 
     /**
