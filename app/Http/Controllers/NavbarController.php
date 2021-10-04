@@ -63,6 +63,8 @@ class NavbarController extends Controller
      */
     public function show(Navbar $navbar)
     {
+        $this -> authorize('fullAccess');
+
         return view('backoffice.pages.navbar.navbarShow', compact('navbar'));
     }
 
@@ -74,6 +76,8 @@ class NavbarController extends Controller
      */
     public function edit(Navbar $navbar)
     {
+        $this -> authorize('fullAccess');
+
         return view('backoffice.pages.navbar.navbarEdit', compact('navbar'));
     }
 

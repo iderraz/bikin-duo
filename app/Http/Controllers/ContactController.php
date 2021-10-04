@@ -66,6 +66,8 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
+        $this -> authorize('fullAccess');
+
         return view('backoffice.pages.contact.contactShow', compact('contact'));
     }
 
@@ -77,6 +79,8 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
+        $this -> authorize('fullAccess');
+
         return view('backoffice.pages.contact.contactEdit', compact('contact'));
     }
 

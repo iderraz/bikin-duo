@@ -72,6 +72,8 @@ class FeatureController extends Controller
      */
     public function show(Feature $feature)
     {
+        $this -> authorize('fullAccess');
+
         return view('backoffice.pages.features.featuresShow', compact('feature'));
     }
 
@@ -83,6 +85,8 @@ class FeatureController extends Controller
      */
     public function edit(Feature $feature)
     {
+        $this -> authorize('fullAccess');
+
         return view('backoffice.pages.features.featuresEdit', compact('feature'));
     }
 

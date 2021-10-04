@@ -65,6 +65,8 @@ class FooterController extends Controller
      */
     public function show(Footer $footer)
     {
+        $this -> authorize('fullAccess');
+
         return view('backoffice.pages.footer.footerShow', compact('footer'));
     }
 
@@ -76,6 +78,8 @@ class FooterController extends Controller
      */
     public function edit(Footer $footer)
     {
+        $this -> authorize('fullAccess');
+
         return view('backoffice.pages.footer.footerEdit', compact('footer'));
     }
 
