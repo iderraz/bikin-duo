@@ -28,6 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this -> authorize('masterAccess');
         $user = User::all();
         return view('backoffice.pages.user.userCreate', compact('user'));
     }
@@ -40,6 +41,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $this -> authorize('masterAccess');
+
         $request->validate([
             'name' => ['required'],
             'email' => ['required'],
@@ -67,6 +70,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        $this -> authorize('masterAccess');
+
         return view('backoffice.pages.user.userShow', compact('user'));
     }
 
@@ -78,6 +83,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $this -> authorize('masterAccess');
+
         return view('backoffice.pages.user.userEdit', compact('user'));
     }
 
@@ -90,6 +97,8 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $this -> authorize('masterAccess');
+
         $request->validate([
             'name' => ['required'],
             'email' => ['required'],
@@ -114,6 +123,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        $this -> authorize('masterAccess');
+
         $user -> delete();
 
         return redirect() -> route('user.index') -> with('message', 'User supprimé !');
