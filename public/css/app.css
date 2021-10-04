@@ -11328,7 +11328,15 @@ textarea.form-control-lg {
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
+  overflow: scroll;
 }
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+
+
 .sidebar.open{
   width: 250px;
 }

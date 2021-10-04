@@ -20,7 +20,6 @@
         </div>
     </section>
 
-    @include('backoffice.partials.card')
 
     {{-- <script src="{{asset('js/tailwind.js')}}"></script> --}}
     <script src="{{asset("js/app.js")}}"></script>
