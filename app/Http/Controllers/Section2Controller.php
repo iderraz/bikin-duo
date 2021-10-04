@@ -28,7 +28,7 @@ class Section2Controller extends Controller
      */
     public function create()
     {
-        $this->authorize("create", AboutUs::class);
+        $this->authorize("create", Section2::class);
         return view('backoffice.pages.section-2.section-2Create');
     }
 
@@ -40,7 +40,7 @@ class Section2Controller extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize("create", AboutUs::class);
+        $this->authorize("create", Section2::class);
         $request->validate([
             'contenu' => ['required']
         ]);
@@ -74,7 +74,7 @@ class Section2Controller extends Controller
      */
     public function edit(Section2 $section2)
     {
-        $this->authorize("update", AboutUs::class);
+        $this->authorize("update", Section2::class);
         return view('backoffice.pages.section-2.section-2Edit', compact('section2'));
     }
 
@@ -87,7 +87,7 @@ class Section2Controller extends Controller
      */
     public function update(Request $request, Section2 $section2)
     {
-        $this->authorize("update", AboutUs::class);
+        $this->authorize("update", Section2::class);
         $request->validate([
             'contenu' => ['required']
         ]);

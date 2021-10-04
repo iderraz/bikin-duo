@@ -28,7 +28,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        $this->authorize("create", AboutUs::class);
+        $this->authorize("create", Team::class);
         return view('backoffice.pages.team.teamCreate');
     }
 
@@ -40,7 +40,7 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize("create", AboutUs::class);
+        $this->authorize("create", Team::class);
         $request->validate([
 
             "url" => "required",
@@ -79,7 +79,7 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-        $this->authorize("update", AboutUs::class);
+        $this->authorize("update", Team::class);
         return view('backoffice.pages.team.teamEdit', compact('team'));
     }
 
@@ -92,7 +92,7 @@ class TeamController extends Controller
      */
     public function update(Request $request, Team $team)
     {
-        $this->authorize("update", AboutUs::class);
+        $this->authorize("update", Team::class);
         $request->validate([
             "url"=> "required",
             "nom"=> "required",

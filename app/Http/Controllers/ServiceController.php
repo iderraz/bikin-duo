@@ -28,7 +28,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        $this->authorize("create", AboutUs::class);
+        $this->authorize("create", Service::class);
         return view('backoffice.pages.services.servicesCreate');
     }
 
@@ -40,7 +40,7 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize("create", AboutUs::class);
+        $this->authorize("create", Service::class);
         $request->validate([
 
             "emoji" => "required",
@@ -77,7 +77,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        $this->authorize("update", AboutUs::class);
+        $this->authorize("update", Service::class);
         return view('backoffice.pages.services.servicesEdit', compact('service'));
     }
 
@@ -90,7 +90,7 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        $this->authorize("update", AboutUs::class);
+        $this->authorize("update", Service::class);
         $request->validate([
             "emoji"=> "required",
             "titre"=> "required",
