@@ -41,7 +41,7 @@ class AboutUsPolicy
      */
     public function create(User $user)
     {
-        //
+        return in_array($user->role_id,[1,2]);
     }
 
     /**
@@ -53,7 +53,7 @@ class AboutUsPolicy
      */
     public function update(User $user, AboutUs $aboutUs)
     {
-        //
+        return in_array($user->role_id,[1,2]);
     }
 
     /**
@@ -65,7 +65,7 @@ class AboutUsPolicy
      */
     public function delete(User $user, AboutUs $aboutUs)
     {
-        //
+        return in_array($user->role_id,[1,2]);
     }
 
     /**
