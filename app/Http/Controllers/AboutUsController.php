@@ -69,6 +69,7 @@ class AboutUsController extends Controller
      */
     public function show(AboutUs $about)
     {
+        $this->authorize("view", AboutUs::class);
 
         return view('backoffice.pages.aboutUs.aboutUsShow', compact('about'));
     }
