@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class TestimonialController extends Controller
 {
     public function __construct() {
-        $this -> middleware(['isConnected', 'isAdmin']);
+        $this -> middleware('isConnected');
     }
     /**
      * Display a listing of the resource.
@@ -40,14 +40,14 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        // $request->validate([
 
-            "url" => "required",
-            "nom" => "required",
-            "fonction" => "required",
-            "description" => "required",
+        //     "url" => "required",
+        //     "nom" => "required",
+        //     "fonction" => "required",
+        //     "description" => "required",
 
-        ]);
+        // ]);
         $testimonial = new Testimonial();
 
         $testimonial->nom = $request->nom;
@@ -91,12 +91,12 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, Testimonial $testimonial)
     {
-        $request->validate([
-            "url"=> "required",
-            "nom"=> "required",
-            "fonction"=> "required",
-            "description"=> "required",
-        ]);
+        // $request->validate([
+        //     "url"=> "required",
+        //     "nom"=> "required",
+        //     "fonction"=> "required",
+        //     "description"=> "required",
+        // ]);
         Storage::disk("public")->delete("img/" . $testimonial->url);
         $testimonial->nom = $request->nom;
         $testimonial->fonction = $request->fonction;

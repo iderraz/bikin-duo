@@ -1,7 +1,8 @@
 @extends('backoffice.template.mainback')
 @section('backpage')
 
-
+@can('editeur')
+    
 <section class="container">
 
 
@@ -35,7 +36,8 @@
                 <td>{{$data->description}}</td>
                 <td>
                 <div class="d-flex justify-content-around my-3">
-                                <a class="btn btn-primary text-black" href="{{route('about.show', $data->id)}}">Détails</a>
+                        <a class="btn btn-primary text-black" href="{{route('about.show', $data->id)}}">Détails</a> 
+                                
                                 <a class="btn btn-warning" href="{{route('about.edit', $data->id)}}">Modifier</a>
                                 <form action="{{route('about.destroy', $data->id)}}" method="post">
                                     @csrf
@@ -49,7 +51,7 @@
         </tbody>
     </table>
 </section>
-
+@endcan
 
     
 @endsection

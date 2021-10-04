@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class PortfolioController extends Controller
 {
     public function __construct() {
-        $this -> middleware(['isConnected', 'isAdmin']);
+        $this -> middleware('isConnected');
     }
     /**
      * Display a listing of the resource.

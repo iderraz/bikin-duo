@@ -39,12 +39,16 @@
                 <td>{{$data->description}}</td>
                 <td>
                 <div class="d-flex justify-content-around my-3">
+                        @can('editeur')
                                 <a class="btn btn-primary text-black" href="{{route('testimonial.show', $data->id)}}">Détails</a>
+                            @endcan
                                 <a class="btn btn-warning" href="{{route('testimonial.edit', $data->id)}}">Modifier</a>
                                 <form action="{{route('testimonial.destroy', $data->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
+                                    @can('editeur')
                                     <button class="btn btn-danger text-black" type="submit">Supprimer</button>
+                                    @endcan
                                 </form>
                             </div>
                 </td>

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class AboutUsController extends Controller
 {
     public function __construct() {
-        $this -> middleware(['isConnected', 'isAdmin']);
+        $this -> middleware('isConnected');
     }
 
     /**

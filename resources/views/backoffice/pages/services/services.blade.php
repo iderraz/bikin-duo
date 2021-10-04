@@ -2,7 +2,7 @@
 @section('backpage')
     
 
-
+@can('editeur')
 
 <section class="container">
 
@@ -53,5 +53,7 @@
         </tbody>
     </table>
 </section>
+
+@endcan
 
 @endsection

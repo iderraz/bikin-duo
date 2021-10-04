@@ -23,6 +23,7 @@
 
     <div class="d-flex flex-column bd-highlight mb-3">
 
+        @can('editeur')
         
         <label class="text-dark" for="nom">Nom  : </label>
         <input name="nom" id="nom" value="{{ $testimonial->nom }}">
@@ -32,6 +33,8 @@
 
         <label class="text-dark" for="fonction">Fonction  : </label>
         <input name="fonction" id="fonction" value="{{ $testimonial->fonction }}">
+
+        @endcan
 
         <label class="text-dark" for="description">description  : </label>
         <input name="description" id="description" value="{{ $testimonial->description }}">

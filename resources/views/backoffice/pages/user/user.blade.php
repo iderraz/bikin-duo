@@ -1,6 +1,8 @@
 @extends('backoffice.template.mainback')
 @section('backpage')
 
+@can('editeur')
+
 <div class="container d-flex justify-content-center">
 
     <h1>user</h1>
@@ -45,12 +47,19 @@
                         <form action="{{ route('user.destroy', $item->id) }}" method="post">
                             @method('DELETE')
                             @csrf
-                            <button class="rounded m-3 bg-danger" type="submit">Delete</button>
+                            @can('webmaster')
+                                <button class="rounded m-3 bg-danger" type="submit">Delete</button>
+                            @endcan
+                            
                         </form>
+                        @can('webmaster')
 
-                        <button class="rounded m-3 bg-warning"><a class="text-decoration-none text-dark" href="{{ route('user.show', $item->id)}}">Show</a></button>
+                            <button class="rounded m-3 bg-warning"><a class="text-decoration-none text-dark" href="{{ route('user.show', $item->id)}}">Show</a></button>
 
-                        <button class="rounded m-3 bg-success"><a class="text-decoration-none text-dark" href="{{ route('user.edit', $item->id)}}">Update</a></button>
+                            <button class="rounded m-3 bg-success"><a class="text-decoration-none text-dark" href="{{ route('user.edit', $item->id)}}">Update</a></button>
+                            
+                        @endcan
+
                     </div>
                 </td>
             </tr>
@@ -62,5 +71,7 @@
     </table>
 
     </div>
+
+@endcan
     
 @endsection

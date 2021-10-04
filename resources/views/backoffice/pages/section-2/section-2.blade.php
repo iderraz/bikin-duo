@@ -1,6 +1,8 @@
 @extends('backoffice.template.mainback')
 @section('backpage')
 
+@can('editeur')
+
 <div class="container d-flex justify-content-center">
 
     <h1>section2</h1>
@@ -56,5 +58,7 @@
     </table>
 
     </div>
+
+@endcan
     
 @endsection

@@ -1,7 +1,7 @@
 @extends('backoffice.template.mainback')
 @section('backpage')
     
-
+@can('editeur')
 
 <section class="container">
 
@@ -55,6 +55,6 @@
     </table>
 </section>
 
-
+@endcan
 
 @endsection
