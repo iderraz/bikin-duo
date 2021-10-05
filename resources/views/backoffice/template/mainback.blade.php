@@ -8,6 +8,9 @@
 {{-- <link rel="stylesheet" href="{{asset('css/tailwind.css')}}"> --}}
 <link rel="stylesheet" href="{{asset("css/app.css")}}">
 
+    {{-- icone dans le select --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css">
+
     <title>Document</title>
 </head>
 <body id="mainbody">
@@ -23,5 +26,9 @@
 
     {{-- <script src="{{asset('js/tailwind.js')}}"></script> --}}
     <script src="{{asset("js/app.js")}}"></script>
+
+    
+    {{-- icone dans le select --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js"></script>
 </body>
 </html>

@@ -19,7 +19,13 @@
     <form class="container d-flex flex-column w-75" action="{{route('about.store')}}" enctype="multipart/form-data" method="post">
         @csrf
         <label for="emoji">Emoji : </label>
-        <input type="text" value="{{old('emoji')}}" name="emoji" id="emoji">
+        <select class="selectpicker">
+            <option data-content="<i class='bx bx-receipt' aria-hidden='true'</i>Option1"></option>
+            <option data-content="<i class='bx bx-receipt' aria-hidden='true'</i>Option2"></option>
+            <option data-content="<i class='bx bx-receipt' aria-hidden='true'</i>Option3"></option>
+            <option data-content="<i class='bx bx-receipt' aria-hidden='true'</i>Option4"></option>
+        </select>
+        
 
         <label for="titre">Titre : </label>
         <input type="text" value="{{old('titre')}}" name="titre" id="titre">
