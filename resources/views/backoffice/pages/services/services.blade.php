@@ -13,10 +13,12 @@
     </div>
     @endif
 
-    <h2 class="centertitle">Modification Service</h2>
+    <h2 class="tracking-in-expand">Service</h2>
 
     <div class="container d-flex justify-content-center">
-        <a class="btn btn-success mt-3 mb-5 fs-4" href="{{route('service.create')}}">Créer</a>
+        <div class="slide-right">
+            <a class="btn btn-success mt-3 mb-5 fs-4" href="{{route('service.create')}}">Ajouter</a>
+        </div>  
     </div>
 
     <table class="table">
@@ -34,19 +36,29 @@
             @foreach($service as $data)
             <tr>
                 <th scope="row">{{$data->id}}</th>
-                <td>{{$data->emoji}}</td>
+                <td><i class="{{$data->emoji}}"></i></td>
                 <td>{{$data->titre}}</td>
                 <td>{{$data->description}}</td>
                 <td>
-                <div class="d-flex justify-content-around my-3">
-                                <a class="btn btn-primary text-black" href="{{route('service.show', $data->id)}}">Détails</a>
-                                <a class="btn btn-warning" href="{{route('service.edit', $data->id)}}">Modifier</a>
-                                <form action="{{route('service.destroy', $data->id)}}" method="post">
+
+                            <div class="d-flex justify-content-around my-3">
+                                <div class="slide-in-left"> <a class="btn btn-primary text-black"
+                                        href="{{ route('service.show', $data->id) }}">Détails</a>
+                                </div>
+
+                                <div class="slide-in-left"> <a class="btn btn-warning"
+                                        href="{{ route('service.edit', $data->id) }}">Modifier</a></div>
+
+                                <form action="{{ route('service.destroy', $data->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger text-black" type="submit">Supprimer</button>
+                                    <div class="slide-in-left">
+                                        <button class="btn btn-danger text-black" type="submit">Supprimer</button>
+                                    </div>
+
                                 </form>
                             </div>
+                            
                 </td>
             </tr>
             @endforeach

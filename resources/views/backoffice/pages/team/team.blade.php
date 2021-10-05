@@ -3,6 +3,8 @@
     
 @can('editeur')
 
+
+
 <section class="container">
 
 
@@ -12,10 +14,12 @@
     </div>
     @endif
 
-    <h2 class="centertitle">Modification Team</h2>
+    <h2 class="tracking-in-expand">Team</h2>
 
     <div class="container d-flex justify-content-center">
-        <a class="btn btn-success mt-3 mb-5 fs-4" href="{{route('team.create')}}">Créer</a>
+        <div class="slide-right">
+            <a class="btn btn-success mt-3 mb-5 fs-4" href="{{ route('team.create') }}">Ajouter</a>
+        </div>
     </div>
 
     <table class="table">
@@ -39,15 +43,23 @@
                 <td>{{$data->fonction}}</td>
                 <td>{{$data->icone}}</td>
                 <td>
-                <div class="d-flex justify-content-around my-3">
-                                <a class="btn btn-primary text-black" href="{{route('team.show', $data->id)}}">Détails</a>
-                                <a class="btn btn-warning" href="{{route('team.edit', $data->id)}}">Modifier</a>
-                                <form action="{{route('team.destroy', $data->id)}}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger text-black" type="submit">Supprimer</button>
-                                </form>
+                    <div class="d-flex justify-content-around my-3">
+                        <div class="slide-in-left"> <a class="btn btn-primary text-black"
+                                href="{{ route('team.show', $data->id) }}">Détails</a>
+                        </div>
+
+                        <div class="slide-in-left"> <a class="btn btn-warning"
+                                href="{{ route('team.edit', $data->id) }}">Modifier</a></div>
+
+                        <form action="{{ route('team.destroy', $data->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <div class="slide-in-left">
+                                <button class="btn btn-danger text-black" type="submit">Supprimer</button>
                             </div>
+
+                        </form>
+                    </div>
                 </td>
             </tr>
             @endforeach

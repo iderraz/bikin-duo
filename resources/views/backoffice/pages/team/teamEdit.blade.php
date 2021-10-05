@@ -1,9 +1,9 @@
 @extends('backoffice.template.mainback')
 @section('backpage')
 
-<h2 class="page-section-heading text-center text-uppercase py-5">Modifier Team</h2>
+<h2 class="tracking-in-expand page-section-heading text-center text-uppercase py-5">Modifier Team</h2>
 
-    <section class="container rounded text-white py-5">
+    <section class="container rounded text-white py-5 w-75 d-flex justify-content-center">
 
         @if ($errors->any())
         <div class="container alert alert-danger">
@@ -20,8 +20,7 @@
             @method('PUT')
 
 
-    <div>
-    <h3 class="text-dark">Changement</h3>
+    <div class="d-flex flex-column">
         <label class="text-dark" for="url">Url : </label>
         <input name="url" id="url" value="{{ $team->url }}">
 

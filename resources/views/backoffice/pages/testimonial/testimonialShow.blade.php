@@ -21,6 +21,6 @@
         </div>
     </div>
 
-</section>khhbkuiuo
+</section>
     
 @endsection

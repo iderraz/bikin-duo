@@ -1,4 +1,4 @@
-@extends('backoffice.template.mainback')
+x²@extends('backoffice.template.mainback')
 @section('backpage')
 
 

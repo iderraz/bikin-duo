@@ -1,7 +1,10 @@
 @extends('backoffice.template.mainback')
 @section('backpage')
 
-<section class="container">
+
+<h2 class="tracking-in-expand">Espace Création </h2>
+
+<section id="serviceCreate" class="container">
 
     @if ($errors->any())
         <div class="container alert alert-danger">

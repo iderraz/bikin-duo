@@ -10,7 +10,7 @@
 
     <title>Document</title>
 </head>
-<body>
+<body id="mainbody">
     {{-- <h1 id="monback">Bienvenue dans le backoffice</h1> --}}
     @include('backoffice.partials.navback.navback')
     

@@ -2,7 +2,7 @@
 @section('backpage')
     
 
-<h2 class="page-section-heading text-center text-uppercase py-5">Modifier Service</h2>
+<h2 class="tracking-in-expand page-section-heading text-center text-uppercase py-5">Modifier Service</h2>
 
     <section class="container rounded text-white py-5 ">
 
@@ -21,8 +21,8 @@
             @method('PUT')
 
 
-    <div>
-    <h3 class="text-dark">Changement</h3>
+    <div  class="d-flex flex-column ">
+
         <label class="text-dark" for="emoji">Emoji : </label>
         <input name="emoji" id="emoji" value="{{ $service->emoji }}">
 

@@ -1,9 +1,9 @@
 @extends('backoffice.template.mainback')
 @section('backpage')
 
-<div class="container">
+<h2 class="tracking-in-expand">Espace Création </h2>
+<div id="contactcreate" class="container">
 
-    <h1 class="text-center my-3">Créer contact</h1>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -31,7 +31,7 @@
             <input class="form-control" name="contenu" value="{{ old('contenu') }}">
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
 
       </form>
 
