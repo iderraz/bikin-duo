@@ -42,20 +42,20 @@ class TestimonialController extends Controller
     {
         $this->authorize("create", Testimonial::class);
 
-        // $request->validate([
+        $request->validate([
 
-        //     "url" => "required",
-        //     "nom" => "required",
-        //     "fonction" => "required",
-        //     "description" => "required",
+            "url" => "required",
+            "nom" => "required",
+            "fonction" => "required",
+            "description" => "required",
 
-        // ]);
+        ]);
         $testimonial = new Testimonial();
 
         $testimonial->nom = $request->nom;
         $testimonial->fonction = $request->fonction;
         $testimonial->description = $request->description;
-        // $testimonial->url = $request->file("url")->hashName();
+        $testimonial->url = $request->file("url")->hashName();
         $testimonial->save();
 
         $request->file('url')->storePublicly('img', 'public');
@@ -71,7 +71,6 @@ class TestimonialController extends Controller
     public function show(Testimonial $testimonial)
     {
         $this -> authorize('Access');
-        $this->authorize("view", Testimonial::class);
 
         return view('backoffice.pages.testimonial.testimonialShow', compact('testimonial'));
     }
@@ -99,12 +98,12 @@ class TestimonialController extends Controller
     {
         $this->authorize("update", $testimonial);
 
-        // $request->validate([
-        //     "url"=> "required",
-        //     "nom"=> "required",
-        //     "fonction"=> "required",
-        //     "description"=> "required",
-        // ]);
+        $request->validate([
+            "url"=> "required",
+            "nom"=> "required",
+            "fonction"=> "required",
+            "description"=> "required",
+        ]);
         Storage::disk("public")->delete("img/" . $testimonial->url);
         $testimonial->nom = $request->nom;
         $testimonial->fonction = $request->fonction;
@@ -125,7 +124,7 @@ class TestimonialController extends Controller
     public function destroy(Testimonial $testimonial)
     {
 
-        $this->authorize("update", $testimonial);
+        $this->authorize("delete", $testimonial);
         Storage::disk('public')->delete('img/'. $testimonial->url);
         $testimonial->delete();
         return redirect()->route('testimonial.index')->with('message', 'supprimé avec succès');
