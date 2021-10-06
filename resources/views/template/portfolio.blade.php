@@ -19,132 +19,24 @@
           </div>
   
           <div class="row portfolio-container">
-  
+
+            @foreach ($portfolio_image as $item)
+
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
-                <img src="{{asset('assets/img/portfolio/'. $portfolio_image[0]->url)}}" class="img-fluid" alt="">
+                <img src="{{asset('assets/img/portfolio/'. $item->url)}}" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>{{ ($portfolio_image[0]->description) }}</h4>
+                  <h4>{{ ($item->description) }}</h4>
                   <p>App</p>
                   <div class="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                    <a href="{{asset('assets/img/portfolio/'. $item->url)}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ $item->description }}"><i class="bx bx-plus"></i></a>
                     <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                   </div>
                 </div>
               </div>
             </div>
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-              <div class="portfolio-wrap">
-                <img src="{{asset('assets/img/portfolio/'. $portfolio_image[1]->url)}}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>{{ ($portfolio_image[1]->description) }}</h4>
-                  <p>Web</p>
-                  <div class="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-              <div class="portfolio-wrap">
-                <img src="{{asset('assets/img/portfolio/'. $portfolio_image[2]->url)}}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>{{ ($portfolio_image[2]->description) }}</h4>
-                  <p>App</p>
-                  <div class="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-              <div class="portfolio-wrap">
-                <img src="{{asset('assets/img/portfolio/'. $portfolio_image[3]->url)}}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>{{ ($portfolio_image[3]->description) }}</h4>
-                  <p>Card</p>
-                  <div class="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-              <div class="portfolio-wrap">
-                <img src="{{asset('assets/img/portfolio/'. $portfolio_image[4]->url)}}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>{{ ($portfolio_image[4]->description) }}</h4>
-                  <p>Web</p>
-                  <div class="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-              <div class="portfolio-wrap">
-                <img src="{{asset('assets/img/portfolio/'. $portfolio_image[5]->url)}}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>{{ ($portfolio_image[5]->description) }}</h4>
-                  <p>App</p>
-                  <div class="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-              <div class="portfolio-wrap">
-                <img src="{{asset('assets/img/portfolio/'. $portfolio_image[6]->url)}}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>{{ ($portfolio_image[6]->description) }}</h4>
-                  <p>Card</p>
-                  <div class="portfolio-links">
-                    <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-              <div class="portfolio-wrap">
-                <img src="{{asset('assets/img/portfolio/'. $portfolio_image[7]->url)}}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>{{ ($portfolio_image[7]->description) }}</h4>
-                  <p>Card</p>
-                  <div class="portfolio-links">
-                    <a href="{{asset('assets/img/portfolio/portfolio-8.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-              <div class="portfolio-wrap">
-                <img src="{{asset('assets/img/portfolio/'. $portfolio_image[8]->url)}}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>{{ ($portfolio_image[8]->description) }}</h4>
-                  <p>Web</p>
-                  <div class="portfolio-links">
-                    <a href="{{asset('assets/img/portfolio/portfolio-9.jpg')}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+            @endforeach
   
           </div>
   
