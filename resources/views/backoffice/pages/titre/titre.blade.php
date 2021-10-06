@@ -2,13 +2,16 @@
 @section('backpage')
 
 @can('editeur')
+<h2 class="tracking-in-expand">Titre</h2>
 
 <div class="container d-flex justify-content-center">
 
-    <h1>titre</h1>
-    <button class="m-2 rounded bg-primary">
-        <a href="{{ route('titre.create') }}"><p class="text-dark text-decoration-none">Ajouter</p></a>
-    </button>
+
+    <div class="container d-flex justify-content-center">
+        <div class="slide-right">
+            <a class=" trhover btn btn-success mt-3 mb-5 fs-4" href="{{ route('titre.create') }}">Ajouter</a>
+        </div>
+    </div>
 
 </div>
 
@@ -21,6 +24,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Titre</th>
                 <th scope="col">Description </th>
+                <th></th>
             </tr>
         </thead>
 
@@ -39,16 +43,22 @@
                 <td>{{ ($item->titre) }}</td>
                 <td>{{ ($item->description) }}</td>
                 <td>
-                    <div class="d-flex">
+                    <div class="d-flex justify-content-around my-3">
+                        <div class="slide-in-left"> <a class=" trhover btn btn-primary text-black"
+                                href="{{ route('titre.show', $item->id) }}">Détails</a>
+                        </div>
+
+                        <div class="slide-in-left"> <a class=" trhover btn btn-warning"
+                                href="{{ route('titre.edit', $item->id) }}">Modifier</a></div>
+
                         <form action="{{ route('titre.destroy', $item->id) }}" method="post">
-                            @method('DELETE')
                             @csrf
-                            <button class="rounded m-3 bg-danger" type="submit">Delete</button>
+                            @method('DELETE')
+                            <div class="slide-in-left">
+                                <button class=" trhover btn btn-danger text-black" type="submit">Supprimer</button>
+                            </div>
+
                         </form>
-
-                        <button class="rounded m-3 bg-warning"><a class="text-decoration-none text-dark" href="{{ route('titre.show', $item->id)}}">Show</a></button>
-
-                        <button class="rounded m-3 bg-success"><a class="text-decoration-none text-dark" href="{{ route('titre.edit', $item->id)}}">Update</a></button>
                     </div>
                 </td>
             </tr>

@@ -1,5 +1,8 @@
 @extends('backoffice.template.mainback')
 @section('backpage')
+
+<h2 class="tracking-in-expand page-section-heading text-center text-uppercase py-5">Modifier User</h2>
+
     
 <div class="container">
 

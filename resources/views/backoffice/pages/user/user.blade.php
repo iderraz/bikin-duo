@@ -3,12 +3,17 @@
 
 @can('editeur')
 
+<h2 class="tracking-in-expand">User</h2>
+
 <div class="container d-flex justify-content-center">
 
-    <h1>user</h1>
-    <button class="m-2 rounded bg-primary">
-        <a href="{{ route('user.create') }}"><p class="text-dark text-decoration-none">Ajouter</p></a>
-    </button>
+    
+
+    <div class="container d-flex justify-content-center">
+        <div class="slide-right">
+            <a class=" trhover btn btn-success mt-3 mb-5 fs-4" href="{{ route('user.create') }}">Ajouter</a>
+        </div>
+    </div>
 
 </div>
 
@@ -23,6 +28,7 @@
                 <th scope="col">email</th>
                 <th scope="col">password</th>
                 <th scope="col">role</th>
+                <th></th>
             </tr>
         </thead>
 
@@ -48,15 +54,19 @@
                             @method('DELETE')
                             @csrf
                             @can('webmaster')
-                                <button class="rounded m-3 bg-danger" type="submit">Delete</button>
+                            <div class="slide-in-left">
+                                <button class=" trhover btn btn-danger text-black" type="submit">Supprimer</button>
+                            </div>
                             @endcan
                             
                         </form>
                         @can('webmaster')
 
-                            <button class="rounded m-3 bg-warning"><a class="text-decoration-none text-dark" href="{{ route('user.show', $item->id)}}">Show</a></button>
-
-                            <button class="rounded m-3 bg-success"><a class="text-decoration-none text-dark" href="{{ route('user.edit', $item->id)}}">Update</a></button>
+                        <div class="slide-in-left"> <a class=" trhover btn btn-primary text-black"
+                            href="{{ route('user.show', $item->id) }}">Détails</a>
+                    </div>
+                    <div class="slide-in-left"> <a class=" trhover btn btn-warning"
+                        href="{{ route('user.edit', $item->id) }}">Modifier</a></div>
                             
                         @endcan
 

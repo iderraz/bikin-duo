@@ -1,9 +1,9 @@
 @extends('backoffice.template.mainback')
 @section('backpage')
 
+<h2 class="tracking-in-expand">Espace Création </h2>
 
-
-<section class="container">
+<section class="container mt-5">
 
     @if ($errors->any())
         <div class="container alert alert-danger">

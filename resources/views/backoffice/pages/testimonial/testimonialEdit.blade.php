@@ -2,9 +2,9 @@
 @section('backpage')
 
 
-<h2 class="page-section-heading text-center text-uppercase py-5">Modifiez testimonial</h2>
+<h2 class="tracking-in-expand page-section-heading text-center text-uppercase py-5">Modifier Testimonial</h2>
 
-    <section class="container rounded text-white py-5 ">
+    <section class="container rounded text-white py-5 w-75 d-flex justify-content-center">
 
         @if ($errors->any())
         <div class="container alert alert-danger">
