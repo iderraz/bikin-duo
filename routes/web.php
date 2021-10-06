@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FooterBottomController;
 use App\Http\Controllers\FooterController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\NavbarController;
 use App\Http\Controllers\PortfolioController;
@@ -38,6 +39,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/main', [MainController::class, 'index'])->name('main');
+
+Route::post('/send-email', [MailController::class, 'sendMail'])->name('sendEmail');
 
 
 
