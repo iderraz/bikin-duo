@@ -23,10 +23,10 @@ class MainController extends Controller
         $section = Section2::all();
         $about_emoji = AboutUs::all();
         $feature_description = Feature::all();
-        $service_card = Service::all();
+        $service_card = Service::all()->random(4);
         $portfolio_image = Portfolio::all();
-        $testimonial_card = Testimonial::all();
-        $team_image = Team::all();
+        $testimonial_card = Testimonial::all()->random(2);
+        $team_image = Team::all()->random(3);
         $contact_emoji = Contact::all();
         $footer_links = Footer::all();
         $bottom_copyright = FooterBottom::all();
